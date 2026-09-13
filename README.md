@@ -80,7 +80,7 @@
 #### 3. AgentRouter
 * **Base URL:** `https://agentrouter.org/v1` ([Click Here](https://agentrouter.org/register?aff=9tAF))
 * **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** `$50` starting balance + automated `$25` daily quota refresh.
+* **Allocation:** `$100` starting balance `$175` with this link+ automated `$25` daily quota refresh.
 * **Technical Notes:** Highest sustained free quota available. Frontier model access included across major foundation model families.
 
 #### 4. JustWoker
