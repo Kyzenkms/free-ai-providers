@@ -29,8 +29,6 @@
 | **Max Automated 24h Quota** | **`$45+ / day`** | Daily automated credit refreshes (AgentRouter: `$25`, JustWoker: `$20`) |
 | **Token-Based Grants** | **`20,000,000+ Tokens`** | Dedicated high-volume token pools (AnyModel: 10M, Yingz: 10M) |
 | **Keyless / Public Bearer Relays** | **`2 Endpoints`** | Instant access via `public` Bearer key (OpenCode Zen) and community pools |
-| **Frontier Model Coverage** | **DeepSeek R1/V3/V4, Claude 3.5/3.7, GPT-4o/o1, GLM-4/5** | Reverse proxy gateways upstreamed to major provider clusters |
-| **Supported Protocols** | **OpenAI (`/v1/chat/completions`) & Anthropic (`/v1/messages`)** | Universal drop-in compatibility across modern SDKs and coding agents |
 
 > [!TIP]
 > **Validate & Fingerprint Any Endpoint in Seconds:** Check latency, inspect real-time model catalog allocations, and run multi-prompt architecture authenticity tests directly in your browser at **[ai.solisk.org/checker](https://ai.solisk.org/checker)**.
