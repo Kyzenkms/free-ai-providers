@@ -259,7 +259,6 @@ Validate credentials, ping latency, scan assigned group models, and detect spoof
 
 ## 🌟 Credits & Acknowledgements
 
-* **Special thanks to [@tuyenpt85](https://gist.github.com/tuyenpt85/5567329d16a9b26de3644120200fa6d5)** for curated provider leads, referral links, and community contributions on initial free-tier credit allocations.
 * **[S1M0N38/llm-fingerprint](https://github.com/S1M0N38/llm-fingerprint)** for the standardized multi-prompt semantic fingerprinting methodology.
 * Built and verified with the **[ai.solisk.org](https://ai.solisk.org/)** diagnostic infrastructure.
 
