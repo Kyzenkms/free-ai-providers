@@ -38,45 +38,6 @@
 
 ---
 
-## 🧭 Master Provider Benchmark Matrix
-
-| Provider | Base URL | Protocol | Free Quota | Daily Refresh | Auth Method | Best Suited For | Diagnostic |
-|:---|:---|:---|:---|:---|:---|:---|:---:|
-| **AgentRouter** | `https://agentrouter.org/v1` ([Click Here](https://agentrouter.org/register?aff=9tAF)) | OpenAI + Anthropic | **`$150`** | `$25` / 24h | GitHub OAuth | Daily dev, coding agents (`glm-5.3`, `deepseek-v4-flash`) | [Test](https://ai.solisk.org/checker) |
-| **TabiToken** | `https://tabitoken.com/v1` ([Click Here](https://tabitoken.com/sign-up)) | OpenAI | **`$120`** | None | GitHub / Email | Multi-model evaluation & reasoning benchmarks | [Test](https://ai.solisk.org/checker) |
-| **KKToken** | `https://kktoken.cc/v1` ([Click Here](https://kktoken.cc/sign-up)) | OpenAI | **`$100`** | None | GitHub / Email | Extended test suites & integration testing | [Test](https://ai.solisk.org/checker) |
-| **BluesMinds** | `https://api.bluesminds.com/v1` ([Click Here](https://api.bluesminds.com/sign-up)) | OpenAI | **`$100`** | None | GitHub / Email | Autonomous coding agents & custom endpoints | [Test](https://ai.solisk.org/checker) |
-| **SeekAI** | `https://seekai.cc/v1` ([Click Here](https://seekai.cc/sign-up?aff=8lEz)) | OpenAI | **`$100`** | None | GitHub / Email | High-throughput batch inference & frontier LLMs | [Test](https://ai.solisk.org/checker) |
-| **GodRouter** | `https://godrouter.cyou/v1` ([Click Here](https://godrouter.cyou/sign-up)) | OpenAI | **`$80`** | None | GitHub / Email | High-concurrency routing & failover | [Test](https://ai.solisk.org/checker) |
-| **JustWoker** | `https://api.justwoker.icu/v1` ([Click Here](https://api.justwoker.icu/register?aff=OBJZ)) | Anthropic + OpenAI | **`$70`** | `$20` / 24h | GitHub / Email | Claude coding toolkits & daily dev tasks | [Test](https://ai.solisk.org/checker) |
-| **GoRouter** | `https://gorouter.app/v1` ([Click Here](https://gorouter.app/sign-up)) | OpenAI | **`$70`** | None | GitHub / Email | Fast routing & tool-calling agent harnesses | [Test](https://ai.solisk.org/checker) |
-| **TokenForge** | `https://tokenforge.ai.studio/v1` ([Click Here](https://tokenforge.ai.studio/sign-up?aff=tkjh)) | OpenAI | **`$60`** | 2×/day pool | GitHub (14d+) | Scheduled tasks & community pool bursts | [Test](https://ai.solisk.org/checker) |
-| **LayerX1** | `https://www.layerx1.com/v1` ([Click Here](https://www.layerx1.com/)) | OpenAI | **`$50`** | None | GitHub / Email | Frontier model testing & agent prototyping | [Test](https://ai.solisk.org/checker) |
-| **Vyce AI** | `https://vyceai.com/v1` ([Click Here](https://vyceai.com/signup)) | OpenAI | **`$50`** | None | GitHub / Email | Tool testing & developer sandbox environments | [Test](https://ai.solisk.org/checker) |
-| **True-SOTA** | `https://true-sota.com/v1` ([Click Here](https://true-sota.com/register)) | OpenAI | **`$20`** | None | GitHub / Email | State-of-the-art model testing | [Test](https://ai.solisk.org/checker) |
-| **APIMaster** | `https://apimaster.ai/v1` ([Click Here](https://apimaster.ai/register?ref=atpht1pq)) | OpenAI | **`$20`** | None | GitHub / Email | Clean GPT-4o / frontier testing & verification | [Test](https://ai.solisk.org/checker) |
-| **Zendigikey** | `https://zendigikey.shop/v1` ([Click Here](https://zendigikey.shop/sign-up)) | OpenAI | **`$10`** | None | GitHub / Email | API endpoint testing & lightweight apps | [Test](https://ai.solisk.org/checker) |
-| **Freemodel.dev** | `https://freemodel.dev/v1` ([Click Here](https://freemodel.dev/)) | OpenAI | **`$10`** | None | GitHub / Email | Free model experimentation | [Test](https://ai.solisk.org/checker) |
-| **AnyModel** | `https://anymodel.org/v1` ([Click Here](https://anymodel.org/)) | OpenAI | **10M Tokens** | None | GitHub / Email | High-volume batch requests & summarization | [Test](https://ai.solisk.org/checker) |
-| **Yingz Bot** | Telegram Relay ([Click Here](https://t.me/Yingzshopbot?start=ref7712622794)) | Custom | **10M Tokens** | Referrals | Telegram Bot | High-volume token pool via Telegram | [Test](https://ai.solisk.org/checker) |
-| **OpenCode Zen** | `https://opencode.ai/zen/v1` ([Click Here](https://opencode.ai)) | OpenAI | **Free / Keyless** | Constant | Bearer `public` | Instant drop-in testing without account | [Test](https://ai.solisk.org/checker) |
-| **WorkBuddy** | Web Portal ([Click Here](https://www.workbuddy.ai/)) | Custom / IDE | Generous | Daily Active | Account Login | Unified CLI, editor runtime, & background agents | [Test](https://ai.solisk.org/checker) |
-| **XKiro** | `https://xkiro.com/v1` ([Click Here](https://xkiro.com/)) | OpenAI | Free Tier | None | Account Login | Free model evaluation | [Test](https://ai.solisk.org/checker) |
-| **HCNSEC** | `https://api.hcnsec.cn/v1` ([Click Here](https://api.hcnsec.cn/sign-up?aff=9A6V)) | OpenAI | High Quota | None | Account Login | Resilient reverse gateway fallback | [Test](https://ai.solisk.org/checker) |
-| **WYY22** | `https://www.wyy22.com/v1` ([Click Here](https://www.wyy22.com/sign-up)) | OpenAI | Free Trial | None | Account Login | Fast Chinese mainland routing | [Test](https://ai.solisk.org/checker) |
-| **BaiLu Code** | `https://bailucode.com/v1` ([Click Here](https://bailucode.com/auth/register)) | OpenAI | Free Trial | None | Invite / Email | Coding assistant agent harnesses | [Test](https://ai.solisk.org/checker) |
-| **LMSpeed** | `https://lmspeed.net/v1` ([Click Here](https://lmspeed.net/)) | OpenAI | Free Trial | None | Account Login | Low-latency inference testing | [Test](https://ai.solisk.org/checker) |
-| **KiraAI** | `https://kiraai.vn/v1` ([Click Here](https://kiraai.vn/)) | OpenAI | Free Trial | None | Account Login | Regional Vietnamese routing | [Test](https://ai.solisk.org/checker) |
-| **Orbelius** | `https://nova.vcrauo.com/v1` ([Click Here](https://nova.vcrauo.com/sign-up?aff=7Ny4)) | OpenAI | `$10` Grant | Campaigns | API Key | Campaign reward balance increments | [Test](https://ai.solisk.org/checker) |
-| **VSLLM** | `https://vsllm.cc/v1` ([Click Here](https://vsllm.cc/register?aff=sTmW)) | OpenAI | `¥0.5` Trial | Subscription | API Key | Low-latency Chinese mainland failover | [Test](https://ai.solisk.org/checker) |
-| **GetUniKey** | `https://api.getunikey.ai/v1` ([Click Here](https://www.getunikey.ai/sign-up?aff=8GN5)) | OpenAI | 5,000 Credits | None | API Key | Image generation and diffusion models | [Test](https://ai.solisk.org/checker) |
-| **TokenRouter** | `https://www.tokenrouter.com/v1` ([Click Here](https://www.tokenrouter.com/)) | OpenAI | Free Trial | None | API Key | Multi-model routing aggregation | [Test](https://ai.solisk.org/checker) |
-| **QianXing** | `https://fast.qianxing.pro/v1` ([Click Here](https://fast.qianxing.pro/sign-up?aff=IoIBndmu)) | OpenAI | Free Quota | None | API Key | Fast regional routing | [Test](https://ai.solisk.org/checker) |
-| **EMTF** | `https://emtf.aipm9527.online/v1` ([Click Here](https://emtf.aipm9527.online/sign-up?aff=3wdE)) | OpenAI | Trial Grant | None | API Key | Lightweight failover endpoint | [Test](https://ai.solisk.org/checker) |
-| **SynteroLink** | Web Portal ([Click Here](https://synterolink.com/register?aff=ET5P738DGDPV)) | OpenAI | Trial Credit | Referral | API Key | Community-shared balance routing | [Test](https://ai.solisk.org/checker) |
-
----
-
 ## 📦 Comprehensive Provider Directory
 
 ### S-Tier — Flagship Grants & Top-Tier Credit Allowances ($100 – $150+ USD)
@@ -269,8 +230,47 @@
 * **Portal:** [Click Here](https://synterolink.com/register?aff=ET5P738DGDPV)
 * **Protocol:** OpenAI Compatible
 * **Technical Notes:** Subscription-based aggregator offering referral reward balance increments.
+---
+
+## 🧭 Master Provider Benchmark Matrix
+
+| Provider | Base URL | Protocol | Free Quota | Daily Refresh | Auth Method | Best Suited For | Diagnostic |
+|:---|:---|:---|:---|:---|:---|:---|:---:|
+| **AgentRouter** | `https://agentrouter.org/v1` ([Click Here](https://agentrouter.org/register?aff=9tAF)) | OpenAI + Anthropic | **`$150`** | `$25` / 24h | GitHub OAuth | Daily dev, coding agents (`glm-5.3`, `deepseek-v4-flash`) | [Test](https://ai.solisk.org/checker) |
+| **TabiToken** | `https://tabitoken.com/v1` ([Click Here](https://tabitoken.com/sign-up)) | OpenAI | **`$120`** | None | GitHub / Email | Multi-model evaluation & reasoning benchmarks | [Test](https://ai.solisk.org/checker) |
+| **KKToken** | `https://kktoken.cc/v1` ([Click Here](https://kktoken.cc/sign-up)) | OpenAI | **`$100`** | None | GitHub / Email | Extended test suites & integration testing | [Test](https://ai.solisk.org/checker) |
+| **BluesMinds** | `https://api.bluesminds.com/v1` ([Click Here](https://api.bluesminds.com/sign-up)) | OpenAI | **`$100`** | None | GitHub / Email | Autonomous coding agents & custom endpoints | [Test](https://ai.solisk.org/checker) |
+| **SeekAI** | `https://seekai.cc/v1` ([Click Here](https://seekai.cc/sign-up?aff=8lEz)) | OpenAI | **`$100`** | None | GitHub / Email | High-throughput batch inference & frontier LLMs | [Test](https://ai.solisk.org/checker) |
+| **GodRouter** | `https://godrouter.cyou/v1` ([Click Here](https://godrouter.cyou/sign-up)) | OpenAI | **`$80`** | None | GitHub / Email | High-concurrency routing & failover | [Test](https://ai.solisk.org/checker) |
+| **JustWoker** | `https://api.justwoker.icu/v1` ([Click Here](https://api.justwoker.icu/register?aff=OBJZ)) | Anthropic + OpenAI | **`$70`** | `$20` / 24h | GitHub / Email | Claude coding toolkits & daily dev tasks | [Test](https://ai.solisk.org/checker) |
+| **GoRouter** | `https://gorouter.app/v1` ([Click Here](https://gorouter.app/sign-up)) | OpenAI | **`$70`** | None | GitHub / Email | Fast routing & tool-calling agent harnesses | [Test](https://ai.solisk.org/checker) |
+| **TokenForge** | `https://tokenforge.ai.studio/v1` ([Click Here](https://tokenforge.ai.studio/sign-up?aff=tkjh)) | OpenAI | **`$60`** | 2×/day pool | GitHub (14d+) | Scheduled tasks & community pool bursts | [Test](https://ai.solisk.org/checker) |
+| **LayerX1** | `https://www.layerx1.com/v1` ([Click Here](https://www.layerx1.com/)) | OpenAI | **`$50`** | None | GitHub / Email | Frontier model testing & agent prototyping | [Test](https://ai.solisk.org/checker) |
+| **Vyce AI** | `https://vyceai.com/v1` ([Click Here](https://vyceai.com/signup)) | OpenAI | **`$50`** | None | GitHub / Email | Tool testing & developer sandbox environments | [Test](https://ai.solisk.org/checker) |
+| **True-SOTA** | `https://true-sota.com/v1` ([Click Here](https://true-sota.com/register)) | OpenAI | **`$20`** | None | GitHub / Email | State-of-the-art model testing | [Test](https://ai.solisk.org/checker) |
+| **APIMaster** | `https://apimaster.ai/v1` ([Click Here](https://apimaster.ai/register?ref=atpht1pq)) | OpenAI | **`$20`** | None | GitHub / Email | Clean GPT-4o / frontier testing & verification | [Test](https://ai.solisk.org/checker) |
+| **Zendigikey** | `https://zendigikey.shop/v1` ([Click Here](https://zendigikey.shop/sign-up)) | OpenAI | **`$10`** | None | GitHub / Email | API endpoint testing & lightweight apps | [Test](https://ai.solisk.org/checker) |
+| **Freemodel.dev** | `https://freemodel.dev/v1` ([Click Here](https://freemodel.dev/)) | OpenAI | **`$10`** | None | GitHub / Email | Free model experimentation | [Test](https://ai.solisk.org/checker) |
+| **AnyModel** | `https://anymodel.org/v1` ([Click Here](https://anymodel.org/)) | OpenAI | **10M Tokens** | None | GitHub / Email | High-volume batch requests & summarization | [Test](https://ai.solisk.org/checker) |
+| **Yingz Bot** | Telegram Relay ([Click Here](https://t.me/Yingzshopbot?start=ref7712622794)) | Custom | **10M Tokens** | Referrals | Telegram Bot | High-volume token pool via Telegram | [Test](https://ai.solisk.org/checker) |
+| **OpenCode Zen** | `https://opencode.ai/zen/v1` ([Click Here](https://opencode.ai)) | OpenAI | **Free / Keyless** | Constant | Bearer `public` | Instant drop-in testing without account | [Test](https://ai.solisk.org/checker) |
+| **WorkBuddy** | Web Portal ([Click Here](https://www.workbuddy.ai/)) | Custom / IDE | Generous | Daily Active | Account Login | Unified CLI, editor runtime, & background agents | [Test](https://ai.solisk.org/checker) |
+| **XKiro** | `https://xkiro.com/v1` ([Click Here](https://xkiro.com/)) | OpenAI | Free Tier | None | Account Login | Free model evaluation | [Test](https://ai.solisk.org/checker) |
+| **HCNSEC** | `https://api.hcnsec.cn/v1` ([Click Here](https://api.hcnsec.cn/sign-up?aff=9A6V)) | OpenAI | High Quota | None | Account Login | Resilient reverse gateway fallback | [Test](https://ai.solisk.org/checker) |
+| **WYY22** | `https://www.wyy22.com/v1` ([Click Here](https://www.wyy22.com/sign-up)) | OpenAI | Free Trial | None | Account Login | Fast Chinese mainland routing | [Test](https://ai.solisk.org/checker) |
+| **BaiLu Code** | `https://bailucode.com/v1` ([Click Here](https://bailucode.com/auth/register)) | OpenAI | Free Trial | None | Invite / Email | Coding assistant agent harnesses | [Test](https://ai.solisk.org/checker) |
+| **LMSpeed** | `https://lmspeed.net/v1` ([Click Here](https://lmspeed.net/)) | OpenAI | Free Trial | None | Account Login | Low-latency inference testing | [Test](https://ai.solisk.org/checker) |
+| **KiraAI** | `https://kiraai.vn/v1` ([Click Here](https://kiraai.vn/)) | OpenAI | Free Trial | None | Account Login | Regional Vietnamese routing | [Test](https://ai.solisk.org/checker) |
+| **Orbelius** | `https://nova.vcrauo.com/v1` ([Click Here](https://nova.vcrauo.com/sign-up?aff=7Ny4)) | OpenAI | `$10` Grant | Campaigns | API Key | Campaign reward balance increments | [Test](https://ai.solisk.org/checker) |
+| **VSLLM** | `https://vsllm.cc/v1` ([Click Here](https://vsllm.cc/register?aff=sTmW)) | OpenAI | `¥0.5` Trial | Subscription | API Key | Low-latency Chinese mainland failover | [Test](https://ai.solisk.org/checker) |
+| **GetUniKey** | `https://api.getunikey.ai/v1` ([Click Here](https://www.getunikey.ai/sign-up?aff=8GN5)) | OpenAI | 5,000 Credits | None | API Key | Image generation and diffusion models | [Test](https://ai.solisk.org/checker) |
+| **TokenRouter** | `https://www.tokenrouter.com/v1` ([Click Here](https://www.tokenrouter.com/)) | OpenAI | Free Trial | None | API Key | Multi-model routing aggregation | [Test](https://ai.solisk.org/checker) |
+| **QianXing** | `https://fast.qianxing.pro/v1` ([Click Here](https://fast.qianxing.pro/sign-up?aff=IoIBndmu)) | OpenAI | Free Quota | None | API Key | Fast regional routing | [Test](https://ai.solisk.org/checker) |
+| **EMTF** | `https://emtf.aipm9527.online/v1` ([Click Here](https://emtf.aipm9527.online/sign-up?aff=3wdE)) | OpenAI | Trial Grant | None | API Key | Lightweight failover endpoint | [Test](https://ai.solisk.org/checker) |
+| **SynteroLink** | Web Portal ([Click Here](https://synterolink.com/register?aff=ET5P738DGDPV)) | OpenAI | Trial Credit | Referral | API Key | Community-shared balance routing | [Test](https://ai.solisk.org/checker) |
 
 ---
+
 
 ## ⚡ Live Diagnostic Suite & Model Fingerprinting
 
