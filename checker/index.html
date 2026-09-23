@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Checker & Config Generator — ai.solisk.org</title>
+<!-- Single Clickable / Popunder Ad Per Visit Controller -->
+<script>
+(function() {
+  const AD_SESSION_KEY = 'solisk_ad_visit_done';
+  if (sessionStorage.getItem(AD_SESSION_KEY)) {
+    window.open = function() { return null; };
+    return;
+  }
+
+  let adTriggered = false;
+  const _origOpen = window.open;
+
+  window.open = function() {
+    if (!adTriggered) {
+      adTriggered = true;
+      sessionStorage.setItem(AD_SESSION_KEY, '1');
+      try { localStorage.setItem('solisk_ad_last_pop', Date.now().toString()); } catch(e){}
+      return _origOpen.apply(this, arguments);
+    }
+    return null;
+  };
+
+  const adScript = document.createElement('script');
+  adScript.src = "https://pl31313316.profitableratecpmnetwork.com/07/91/70/0791709d27c7be48a47aecd19ecfe10b.js";
+  adScript.async = true;
+  document.head.appendChild(adScript);
+
+  window.addEventListener('click', function() {
+    setTimeout(function() {
+      sessionStorage.setItem(AD_SESSION_KEY, '1');
+    }, 200);
+  }, { once: true, capture: true });
+})();
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #06070f;
+    --surface: #0d1117;
+    --surface2: #161b27;
+    --surface3: #1f2738;
+    --border: rgba(255,255,255,0.08);
+    --border-glow: rgba(99,102,241,0.45);
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --accent: #6366f1;
+    --accent2: #06b6d4;
+    --accent3: #a78bfa;
+    --success: #22c55e;
+    --error: #ef4444;
+    --warn: #f59e0b;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(99,102,241,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99,102,241,0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .orb { position: fixed; border-radius: 50%; filter: blur(110px); pointer-events: none; z-index: 0; }
+  .orb-1 { width: 500px; height: 500px; background: rgba(99,102,241,0.09); top: -150px; left: -100px; }
+  .orb-2 { width: 450px; height: 450px; background: rgba(6,182,212,0.07); bottom: 0; right: -100px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(6,7,15,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; gap: 18px;
+    height: 60px; max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  }
+  .nav-inner .nav-links { margin-left: auto; }
+  .nav-logo { font-size: 15px; font-weight: 700; letter-spacing: -0.5px; text-decoration: none; white-space: nowrap; background: linear-gradient(135deg,var(--accent2),var(--accent3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .nav-links { display: flex; gap: 6px; }
+  .nav-link { padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: all 0.2s; border: 1px solid transparent; white-space: nowrap; }
+  .nav-link:hover { color: var(--text); border-color: var(--border); background: var(--surface2); }
+  .nav-link.active { color: var(--accent2); border-color: rgba(6,182,212,0.3); background: rgba(6,182,212,0.08); }
+  .pulse { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; display: inline-block; }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+  .nav-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 20px; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); font-size: 12px; color: var(--accent3); }
+  @media (max-width: 700px) {
+    .nav-inner { padding: 0 14px; gap: 10px; }
+    .nav-links { gap: 2px; }
+    .nav-link { padding: 6px 9px; font-size: 12px; }
+    .nav-badge { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  /* Layout */
+  .wrap { max-width: 1360px; margin: 0 auto; padding: 24px 20px; position: relative; z-index: 1; display: grid; grid-template-columns: 370px 1fr 260px; gap: 20px; align-items: start; }
+  @media (max-width: 1200px) {
+    .wrap { grid-template-columns: 1fr; }
+    .side-banner-col {
+      width: 100% !important;
+      max-width: 640px;
+      margin: 24px auto 0;
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: static !important;
+    }
+  }
+  @media (max-width: 860px) { .wrap { grid-template-columns: 1fr; } }
+
+  /* Group Notice Banner */
+    /* Security & Quota Notice */
+  .security-notice {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.28);
+    border-radius: 12px;
+    padding: 11px 14px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .security-notice-icon { color: #10b981; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .security-notice-title { font-size: 11.5px; font-weight: 700; color: #6ee7b7; margin-bottom: 3px; }
+  .security-notice-desc { font-size: 11px; color: #cbd5e1; line-height: 1.45; }
+
+  .group-notice {
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.22);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .group-notice-icon { color: var(--accent2); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .group-notice-title { font-size: 11.5px; font-weight: 700; color: #cbd5e1; margin-bottom: 3px; }
+  .group-notice-desc { font-size: 11px; color: var(--muted); line-height: 1.45; }
+
+  /* Side Ad Banners */
+  .side-banner-col { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 76px; width: 300px; }
+  .ad-slot {
+    background: rgba(13, 17, 23, 0.7);
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    min-height: 250px;
+    transition: all 0.2s;
+  }
+  .ad-slot:hover { border-color: rgba(255, 255, 255, 0.25); background: rgba(22, 27, 39, 0.8); }
+  .ad-slot-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #475569;
+    margin-bottom: 6px;
+  }
+  .ad-placeholder {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+    padding: 12px;
+  }
+
+  /* Panels */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .panel:hover { border-color: rgba(255,255,255,0.12); }
+  .panel-head {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .panel-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .panel-icon { width: 28px; height: 28px; border-radius: 8px; background: var(--surface2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--accent2); }
+  .panel-body { padding: 18px 20px; }
+
+  /* Form controls */
+  label { display: block; font-size: 11px; font-weight: 700; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+  input, select, textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 13px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--border-glow); box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
+  input::placeholder, textarea::placeholder { color: #475569; }
+  select option { background: #161b27; color: #f1f5f9; }
+  .field { margin-bottom: 15px; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 600;
+    cursor: pointer; border: none; transition: all 0.2s; font-family: inherit;
+    text-decoration: none;
+  }
+  .btn-primary { background: linear-gradient(135deg,var(--accent),var(--accent3)); color: white; box-shadow: 0 0 20px rgba(99,102,241,0.35); }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 28px rgba(99,102,241,0.55); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--border-glow); background: var(--surface2); }
+  .btn-stop { background: rgba(239,68,68,0.15); color: var(--error); border: 1px solid rgba(239,68,68,0.35); }
+  .btn-stop:hover { background: rgba(239,68,68,0.25); }
+  .btn-success { background: rgba(34,197,94,0.15); color: var(--success); border: 1px solid rgba(34,197,94,0.3); }
+  .btn-success:hover { background: rgba(34,197,94,0.25); }
+  .btn-sm { padding: 6px 12px; font-size: 12px; border-radius: 8px; }
+  .btn-xs { padding: 4px 10px; font-size: 11px; border-radius: 6px; }
+  .btn-full { width: 100%; justify-content: center; }
+  .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* Model list & filter */
+  .filter-input-wrap { position: relative; margin-bottom: 12px; }
+  .filter-input-wrap input { padding-left: 32px; font-size: 12px; }
+  .filter-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+
+  .model-list {
+    max-height: 380px;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface2);
+    scrollbar-width: thin;
+    scrollbar-color: var(--surface3) transparent;
+  }
+  .model-list::-webkit-scrollbar { width: 5px; }
+  .model-list::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 3px; }
+
+  .model-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    cursor: pointer;
+    transition: background 0.12s;
+    user-select: none;
+  }
+  .model-item:last-child { border-bottom: none; }
+  .model-item:hover { background: var(--surface3); }
+  .model-item.selected { background: rgba(99,102,241,0.09); }
+  .model-item input[type=checkbox] {
+    width: 15px; height: 15px;
+    border-radius: 4px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  .model-id { font-size: 12px; font-weight: 600; color: var(--text); flex: 1; font-family: ui-monospace, monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .model-owned { font-size: 10px; color: var(--muted); }
+
+  .model-status-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    background: #334155;
+    transition: background 0.25s, box-shadow 0.25s;
+  }
+  .model-status-dot.checking { background: var(--warn); box-shadow: 0 0 8px var(--warn); animation: spin-pulse 1s infinite; }
+  .model-status-dot.ok { background: var(--success); box-shadow: 0 0 6px rgba(34,197,94,0.6); }
+  .model-status-dot.fail { background: var(--error); box-shadow: 0 0 6px rgba(239,68,68,0.6); }
+  @keyframes spin-pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+
+  .select-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .select-count { font-weight: 700; color: var(--accent2); }
+
+  /* Manual input accordion */
+  .accordion-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 0; font-size: 12px; font-weight: 600; color: var(--accent3);
+    cursor: pointer; user-select: none;
+  }
+  .accordion-content { display: none; margin-top: 8px; margin-bottom: 12px; }
+
+  /* Results */
+  #results-area { display: flex; flex-direction: column; gap: 12px; }
+  .result-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    animation: fadeIn 0.25s ease;
+  }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
+
+  .result-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .result-model { font-size: 12.5px; font-weight: 700; font-family: ui-monospace, monospace; }
+  .result-badge {
+    padding: 2px 8px; border-radius: 20px; font-size: 10.5px; font-weight: 700;
+  }
+  .badge-ok { background: rgba(34,197,94,0.12); color: var(--success); border: 1px solid rgba(34,197,94,0.3); }
+  .badge-fail { background: rgba(239,68,68,0.12); color: var(--error); border: 1px solid rgba(239,68,68,0.3); }
+  .badge-checking { background: rgba(245,158,11,0.12); color: var(--warn); border: 1px solid rgba(245,158,11,0.3); animation: spin-pulse 1s infinite; }
+
+  .result-latency { font-size: 11px; margin-right: 8px; font-family: monospace; }
+  .lat-fast { color: #22c55e; }
+  .lat-mid { color: #f59e0b; }
+  .lat-slow { color: #f97316; }
+
+  .result-text {
+    font-size: 11.5px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 6px;
+    max-height: 110px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: ui-monospace, monospace;
+    line-height: 1.45;
+  }
+
+  /* Progress */
+  .progress-wrap { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; }
+  .progress-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .progress-bar { height: 4px; background: var(--surface3); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg,var(--accent),var(--accent2)); border-radius: 2px; transition: width 0.25s; }
+
+  /* Export panel */
+  .export-tabs { display: flex; gap: 6px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .export-tab {
+    padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 600;
+    cursor: pointer; background: transparent; border: 1px solid transparent; color: var(--muted);
+    transition: all 0.15s;
+  }
+  .export-tab.active { background: var(--surface2); border-color: var(--border); color: var(--accent2); }
+  .export-tab:hover:not(.active) { color: var(--text); }
+  .code-box {
+    background: #090c14;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    font-family: ui-monospace, monospace;
+    font-size: 11.5px;
+    color: #cbd5e1;
+    max-height: 240px;
+    overflow-y: auto;
+    white-space: pre;
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+
+  .empty-state { text-align: center; padding: 48px 20px; color: var(--muted); }
+  .empty-state svg { margin-bottom: 12px; opacity: 0.35; }
+  .empty-state p { font-size: 13px; line-height: 1.5; }
+
+  /* Toast */
+  #toast { position: fixed; bottom: 24px; right: 24px; z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+  .toast-item {
+    padding: 10px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    animation: toastIn 0.25s ease;
+    max-width: 320px;
+  }
+  @keyframes toastIn { from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)} }
+  .toast-ok { background: #064e3b; border: 1px solid #059669; color: #a7f3d0; }
+  .toast-fail { background: #7f1d1d; border: 1px solid #dc2626; color: #fecaca; }
+  .toast-info { background: #1e1b4b; border: 1px solid #4f46e5; color: #c7d2fe; }
+
+  .divider { height: 1px; background: var(--border); margin: 14px 0; }
+  .tag { display: inline-flex; align-items: center; padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: var(--surface3); color: var(--muted); border: 1px solid var(--border); margin-left: 6px; }
+
+  /* Fingerprint Modal & Styles (S1M0N38/llm-fingerprint) */
+  .btn-fp {
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+  }
+  .btn-fp:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 28px rgba(139, 92, 246, 0.55);
+  }
+  .btn-xs-fp {
+    margin-left: auto;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #c084fc;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-xs-fp:hover {
+    background: rgba(139, 92, 246, 0.35);
+    color: #fff;
+    transform: scale(1.05);
+  }
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 7, 15, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-card {
+    background: #0d121f;
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 760px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(139, 92, 246, 0.25);
+    animation: modalPop 0.2s ease-out;
+    overflow: hidden;
+  }
+  @keyframes modalPop {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.02);
+  }
+  .modal-body {
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .fp-verdict-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+  }
+  .fp-verdict-authentic {
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    color: #4ade80;
+  }
+  .fp-verdict-spoof {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+  }
+  .fp-rank-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  .fp-rank-name {
+    width: 190px;
+    color: #cbd5e1;
+    font-weight: 500;
+  }
+  .fp-rank-bar-bg {
+    flex: 1;
+    height: 8px;
+    background: var(--surface3);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0 12px;
+  }
+  .fp-rank-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+    border-radius: 4px;
+    transition: width 0.6s ease;
+  }
+  .fp-rank-pct {
+    width: 45px;
+    text-align: right;
+    font-weight: 700;
+    color: #38bdf8;
+    font-family: ui-monospace, monospace;
+  }
+  .fp-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .fp-metric-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+  .fp-metric-val {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-top: 4px;
+  }
+  .fp-metric-lbl {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .probe-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .probe-head {
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background: rgba(255,255,255,0.015);
+  }
+  .probe-head:hover {
+    background: rgba(255,255,255,0.03);
+  }
+  .probe-body {
+    padding: 12px 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    line-height: 1.5;
+    background: #090c14;
+    color: #cbd5e1;
+    max-height: 180px;
+    overflow-y: auto;
+  }
+
+  /* Live Log Terminal */
+  .log-panel {
+    margin-top: 14px;
+    background: #090c14;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .log-head {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+  }
+  .log-body {
+    padding: 10px 12px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 11px;
+    line-height: 1.55;
+    color: #cbd5e1;
+    max-height: 180px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    background: #05070d;
+  }
+  .log-entry { margin-bottom: 3px; }
+  .log-time { color: #64748b; margin-right: 6px; }
+  .log-info { color: #38bdf8; }
+  .log-ok { color: #4ade80; }
+  .log-warn { color: #fbbf24; }
+  .log-err { color: #f87171; }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">AI Providers</a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/#providers" class="nav-link">Providers</a>
+      <a href="/tools" class="nav-link">Tools</a>
+      <a href="/checker" class="nav-link active">Checker</a>
+    </div>
+    <div class="nav-badge"><span class="pulse"></span> Live</div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- LEFT: Controls & Model List -->
+  <div>
+    <!-- Security & Quota Guarantee Notice -->
+    <div class="security-notice">
+      <div class="security-notice-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="security-notice-title">Zero-Storage & Minimal Quota Guarantee</div>
+        <div class="security-notice-desc">Testing and fingerprint checks are optimized to cost <strong>minimal quota tokens</strong>. Your API key is strictly ephemeral and is <strong>nowhere saved or logged</strong> on our system.</div>
+      </div>
+    </div>
+
+    <!-- Group Notice -->
+    <div class="group-notice">
+      <div class="group-notice-icon">&#9432;</div>
+      <div>
+        <div class="group-notice-title">Group-Based APIs Note</div>
+        <div class="group-notice-desc">Relay tokens (New API, One API) are scoped to their assigned user group (Free, VIP, Default). The scanner fetches models visible to your specific key's group. Use <strong>Enter models manually</strong> below to test other tiers.</div>
+      </div>
+    </div>
+
+    <!-- Endpoint Setup -->
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-title">
+          <div class="panel-icon">&#9881;</div>
+          Endpoint Configuration
+        </div>
+      </div>
+      <div class="panel-body">
+        <!-- Request Execution Mode Switch -->
+        <div class="field" style="margin-bottom: 16px;">
+          <label style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-weight: 700; color: #cbd5e1;">Connection Method</span>
+            <span id="mode-badge" style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #10b981; letter-spacing: 0.06em;">Local Browser</span>
+          </label>
+          <div class="mode-switch" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: rgba(15, 23, 42, 0.7); padding: 4px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <button type="button" class="mode-btn" id="mode-direct" onclick="setExecMode('direct')" style="padding: 8px 10px; border-radius: 7px; border: none; font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.2s; background: #6366f1; color: #ffffff;">
+              Local Browser
+            </button>
+            <button type="button" class="mode-btn" id="mode-relay" onclick="setExecMode('relay')" style="padding: 8px 10px; border-radius: 7px; border: none; font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.2s; background: transparent; color: #94a3b8;">
+              Cloud Relay
+            </button>
+          </div>
+          <div id="mode-desc" style="font-size: 10.5px; color: #94a3b8; margin-top: 6px; line-height: 1.45;">
+            Local Browser: Tests run directly on your device. Your API key never touches any outside server.
+          </div>
+        </div>
+
+
+        <div class="field">
+          <label>Base URL</label>
+          <input id="base-url" type="url" placeholder="https://api.example.com/v1" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label>API Key</label>
+          <input id="api-key" type="password" placeholder="sk-..." autocomplete="off">
+          <div style="font-size:10.5px;color:#94a3b8;margin-top:4px;display:flex;align-items:center;gap:4px"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#10b981;margin-right:4px"></span><span>Zero storage policy &bull; In-memory only &bull; Minimal token probes</span></div>
+        </div>
+        <div class="field">
+          <label>Protocol</label>
+          <select id="protocol">
+            <option value="auto">Auto Detect Protocol</option>
+            <option value="openai">OpenAI Compatible (chat/completions)</option>
+            <option value="anthropic">Anthropic Format (messages)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>User-Agent <span class="tag">optional</span></label>
+          <input id="user-agent" type="text" placeholder="Mozilla/5.0 (default)" autocomplete="off">
+        </div>
+        <div class="field">
+          <label>Test Prompt <span class="tag">optional</span></label>
+          <textarea id="test-prompt" rows="2" placeholder="Say 'Ready' in one word.">Say 'Ready' in one word.</textarea>
+        </div>
+        
+        <div class="btn-row" style="display: grid; grid-template-columns: 1fr auto; gap: 8px;">
+          <button class="btn btn-primary" onclick="scanModels()" id="scan-btn" style="width: 100%;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Scan Available Models
+          </button>
+          <button class="btn btn-outline" type="button" onclick="copyCurl()" title="Copy cURL to test locally in your own terminal" style="white-space: nowrap; padding: 0 14px; font-size: 11.5px; font-weight: 600;">
+            Copy cURL
+          </button>
+        </div>
+
+        <!-- CORS Warning Banner -->
+        <div id="cors-notice" style="display:none;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.28);border-radius:10px;padding:12px 14px;margin-top:14px;font-size:11.5px;line-height:1.5;color:#fca5a5">
+          <div style="font-weight:700;margin-bottom:3px;color:#f87171">Browser Connection Blocked by Provider</div>
+          This provider does not allow direct browser connections (CORS blocked). Switch to Cloud Relay to test automatically.
+          <div style="margin-top:8px;display:flex;gap:8px">
+            <button type="button" onclick="setExecMode('relay');scanModels()" class="btn btn-sm btn-primary" style="font-size:11px;padding:4px 10px">Switch to Cloud Relay</button>
+            <button type="button" onclick="copyCurl()" class="btn btn-sm btn-outline" style="font-size:11px;padding:4px 10px">Copy cURL Command</button>
+          </div>
+        </div>
+
+
+        <!-- Fallback manual models -->
+        <div style="margin-top:14px">
+          <div class="accordion-toggle" onclick="toggleManualInput()">
+            <span>Enter models manually &darr;</span>
+            <span id="accordion-arrow" style="font-size:10px">&#9660;</span>
+          </div>
+          <div class="accordion-content" id="manual-input-box">
+            <textarea id="manual-models-text" rows="3" placeholder="gpt-5.6-terra&#10;gpt-5.6-sol&#10;step-3.7-flash"></textarea>
+            <button class="btn btn-outline btn-sm btn-full" style="margin-top:6px" onclick="addManualModels()">
+              + Load Manual Models
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Models Panel -->
+    <div class="panel" id="models-panel" style="display:none">
+      <div class="panel-head">
+        <div class="panel-title">
+          <div class="panel-icon">&#9638;</div>
+          Models
+          <span id="model-count-tag" class="tag">0</span>
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="btn btn-outline btn-xs" onclick="selectAllFiltered()">Select All</button>
+          <button class="btn btn-outline btn-xs" onclick="deselectAllFiltered()">None</button>
+        </div>
+      </div>
+      <div class="panel-body" style="padding:14px">
+        
+        <div class="filter-input-wrap">
+          <svg class="filter-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input id="model-filter" type="search" placeholder="Search models by name..." oninput="filterModels()" autocomplete="off">
+        </div>
+
+        <div class="select-bar">
+          <span><span class="select-count" id="selected-count">0</span> of <span id="total-count">0</span> selected</span>
+          <span id="filtered-note" style="font-size:11px;color:var(--muted)"></span>
+        </div>
+
+        <div class="model-list" id="model-list"></div>
+
+        <div class="divider"></div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="checkSelected()" id="check-btn" style="flex:1;justify-content:center">
+            Check Selected (<span id="btn-selected-count">0</span>)
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="checkAll()" id="check-all-btn" title="Check All Models">
+            Check All
+          </button>
+          <button class="btn btn-stop btn-sm" onclick="stopChecks()" id="stop-btn" style="display:none">
+            Stop
+          </button>
+        </div>
+        <div class="btn-row" style="margin-top:8px">
+          <button class="btn btn-fp btn-full" onclick="runFingerprintSelected()" id="fp-btn" style="justify-content:center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            LLM Fingerprint Test (S1M0N38 Multi-Prompt)
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Config Export Panel -->
+    <div class="panel" id="export-panel" style="display:none">
+      <div class="panel-head">
+        <div class="panel-title">
+          <div class="panel-icon">&#10515;</div>
+          Export Tested Configs
+        </div>
+      </div>
+      <div class="panel-body">
+        <p style="font-size:12px;color:var(--muted);margin-bottom:12px">
+          Working models detected: <strong id="export-ok-count" style="color:var(--success)">0</strong>. Choose a target format to copy or download.
+        </p>
+
+        <div class="field">
+          <label>Provider Name</label>
+          <input id="export-provider-name" type="text" placeholder="my-provider" oninput="updateExportCode()">
+        </div>
+
+        <div class="export-tabs">
+          <button class="export-tab active" onclick="setExportTab('openclaw')">OpenClaw</button>
+          <button class="export-tab" onclick="setExportTab('opencode')">OpenCode</button>
+          <button class="export-tab" onclick="setExportTab('script')">Setup Script</button>
+        </div>
+
+        <div class="code-box" id="export-code-box"></div>
+
+        <div class="btn-row">
+          <button class="btn btn-success btn-sm" style="flex:1;justify-content:center" onclick="copyExportCode()">
+            Copy to Clipboard
+          </button>
+          <button class="btn btn-outline btn-sm" id="download-script-btn" style="display:none" onclick="downloadScript()">
+            Download .sh
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: Results Panel -->
+  <div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-title">
+          <div class="panel-icon">&#9889;</div>
+          Live Test Results
+          <span id="results-count-tag" class="tag">0</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span id="ok-counter" style="font-size:12px;color:var(--success);font-weight:700;display:none"></span>
+          <button class="btn btn-outline btn-xs" onclick="clearResults()">Clear</button>
+        </div>
+      </div>
+      <div class="panel-body" style="padding:16px">
+
+        <!-- Progress -->
+        <div id="progress-wrap" style="display:none">
+          <div class="progress-wrap">
+            <div class="progress-label">
+              <span id="progress-label">Checking models...</span>
+              <span id="progress-frac" style="font-family:monospace">0/0</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+
+        <!-- Results stream -->
+        <div id="results-area">
+          <div class="empty-state">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <p>Enter your API URL & Key on the left<br>and scan to test models in real time.</p>
+          </div>
+        </div>
+
+        <!-- Live Activity Log Bar -->
+        <div class="log-panel" id="log-panel">
+          <div class="log-head">
+            <span style="display:flex;align-items:center;gap:6px">
+              <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#38bdf8"></span>
+              Console Log
+            </span>
+            <button type="button" onclick="clearLog()" style="background:transparent;border:none;color:#64748b;font-size:10px;cursor:pointer;font-weight:600">Clear</button>
+          </div>
+          <div class="log-body" id="log-stream">
+            <div class="log-entry"><span class="log-time">[ready]</span> <span class="log-info">Ready to probe. Enter base URL and key to begin.</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: Ad Banners Slot (Google AdSense / Media.net / Adsterra / Direct Ads) -->
+  <div class="side-banner-col">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#475569;margin-bottom:2px">
+      Sponsored
+    </div>
+
+    <!-- Ad Slot 1 (Standard 300x250 Rectangle) -->
+    <div class="ad-slot" id="ad-slot-1" style="min-height:250px;width:300px;border:none;background:transparent">
+      <script>
+        atOptions = {
+          'key' : 'e69e107d2ebf9c82d640c17081f5dbee',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highrevenueformat.com/e69e107d2ebf9c82d640c17081f5dbee/invoke.js"></script>
+    </div>
+
+    <!-- Ad Slot 2 (Standard 300x250 Rectangle) -->
+    <div class="ad-slot" id="ad-slot-2" style="min-height:250px;width:300px;border:none;background:transparent">
+      <script>
+        atOptions = {
+          'key' : 'e69e107d2ebf9c82d640c17081f5dbee',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highrevenueformat.com/e69e107d2ebf9c82d640c17081f5dbee/invoke.js"></script>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script>
+// Execution Mode: 'direct' (100% browser client) or 'relay' (CORS proxy)
+let executionMode = 'direct';
+
+function addLog(msg, type = 'info') {
+  const stream = document.getElementById('log-stream');
+  if (!stream) return;
+  const d = new Date();
+  const timeStr = [d.getHours(), d.getMinutes(), d.getSeconds()].map(v => String(v).padStart(2, '0')).join(':');
+  const div = document.createElement('div');
+  div.className = 'log-entry';
+  div.innerHTML = `<span class="log-time">[${timeStr}]</span> <span class="log-${type}">${escapeHtml(msg)}</span>`;
+  stream.appendChild(div);
+  stream.scrollTop = stream.scrollHeight;
+}
+
+function clearLog() {
+  const stream = document.getElementById('log-stream');
+  if (stream) stream.innerHTML = '';
+}
+
+function setExecMode(mode) {
+  executionMode = mode;
+  const bDirect = document.getElementById('mode-direct');
+  const bRelay = document.getElementById('mode-relay');
+  const badge = document.getElementById('mode-badge');
+  const desc = document.getElementById('mode-desc');
+  const notice = document.getElementById('cors-notice');
+  if (notice) notice.style.display = 'none';
+
+  if (mode === 'direct') {
+    if (bDirect) { bDirect.style.background = '#6366f1'; bDirect.style.color = '#ffffff'; }
+    if (bRelay) { bRelay.style.background = 'transparent'; bRelay.style.color = '#94a3b8'; }
+    if (badge) { badge.textContent = 'Local Browser'; badge.style.color = '#10b981'; }
+    if (desc) { desc.textContent = 'Local Browser: Tests run directly on your device. Your API key never touches any outside server.'; }
+    addLog('Switched connection mode to Local Browser (direct client)', 'info');
+  } else {
+    if (bRelay) { bRelay.style.background = '#6366f1'; bRelay.style.color = '#ffffff'; }
+    if (bDirect) { bDirect.style.background = 'transparent'; bDirect.style.color = '#94a3b8'; }
+    if (badge) { badge.textContent = 'Cloud Relay'; badge.style.color = '#38bdf8'; }
+    if (desc) { desc.textContent = 'Cloud Relay: Routes requests through a fast in-memory forwarder when the remote provider blocks browsers (CORS).'; }
+    addLog('Switched connection mode to Cloud Relay (CORS bypass)', 'info');
+  }
+}
+
+function copyCurl() {
+  const baseUrl = document.getElementById('base-url').value.trim() || 'https://api.example.com/v1';
+  const apiKey = document.getElementById('api-key').value.trim() || 'YOUR_API_KEY';
+  const cleanUrl = baseUrl.replace(/\/+$/, '');
+  const prompt = document.getElementById('test-prompt').value.trim() || 'Say "Ready" in one word.';
+
+  const cmd = `curl -X POST "${cleanUrl}/chat/completions" \\\n  -H "Authorization: Bearer ${apiKey}" \\\n  -H "Content-Type: application/json" \\\n  -d '{"model": "gpt-4o", "messages": [{"role": "user", "content": "${prompt}"}], "max_tokens": 16}'`;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(cmd).then(() => {
+      toast('cURL command copied to clipboard (run directly in your terminal)', 'ok');
+    }).catch(() => {
+      window.prompt('Copy this cURL command:', cmd);
+    });
+  } else {
+    window.prompt('Copy this cURL command:', cmd);
+  }
+}
+
+// State
+let allModels = [];
+let results = {};
+let detectedProtocol = 'openai';
+let isChecking = false;
+let shouldStop = false;
+let currentExportTab = 'openclaw';
+
+const BASE = window.location.pathname.startsWith('/checker') ? '/checker' : '';
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function escapeId(id) {
+  return encodeURIComponent(id).replace(/[^a-zA-Z0-9_-]/g, '_');
+}
+
+// Toast
+function toast(msg, type = 'info', duration = 3200) {
+  const container = document.getElementById('toast');
+  const el = document.createElement('div');
+  el.className = `toast-item toast-${type}`;
+  el.textContent = msg;
+  container.appendChild(el);
+  setTimeout(() => el.remove(), duration);
+}
+
+// Toggle manual input accordion
+function toggleManualInput() {
+  const box = document.getElementById('manual-input-box');
+  const arrow = document.getElementById('accordion-arrow');
+  if (box.style.display === 'block') {
+    box.style.display = 'none';
+    arrow.innerHTML = '&#9660;';
+  } else {
+    box.style.display = 'block';
+    arrow.innerHTML = '&#9650;';
+  }
+}
+
+function addManualModels() {
+  const raw = document.getElementById('manual-models-text').value.trim();
+  if (!raw) { toast('Enter model IDs first', 'fail'); return; }
+  const lines = raw.split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
+  let added = 0;
+  for (const mid of lines) {
+    if (!allModels.some(m => m.id === mid)) {
+      allModels.push({ id: mid, name: mid, selected: true });
+      added++;
+    }
+  }
+  toast(`Added ${added} models manually`, 'ok');
+  document.getElementById('models-panel').style.display = '';
+  renderModelList();
+}
+
+// Scan Models
+async function scanModels() {
+  const baseUrl = document.getElementById('base-url').value.trim();
+  const apiKey = document.getElementById('api-key').value.trim();
+  const protocol = document.getElementById('protocol').value;
+  let userAgent = document.getElementById('user-agent').value.trim();
+
+  const notice = document.getElementById('cors-notice');
+  if (notice) notice.style.display = 'none';
+
+  if (!baseUrl || !apiKey) { toast('Base URL and API Key are required', 'fail'); return; }
+
+  const btn = document.getElementById('scan-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="pulse" style="background:#00f0ff"></span> Probing API...';
+
+  if (executionMode === 'direct') {
+    let cleanUrl = baseUrl.replace(/\/+$/, '');
+    let target = cleanUrl.endsWith('/models') ? cleanUrl : cleanUrl + '/models';
+    addLog(`Scanning models directly via browser GET ${target}...`, 'info');
+    try {
+      const resp = await fetch(target, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Accept': 'application/json'
+        }
+      });
+      if (!resp.ok) {
+        throw new Error(`HTTP ${resp.status}: ${resp.statusText}`);
+      }
+      const data = await resp.json();
+      const modelsList = Array.isArray(data.data) ? data.data : (Array.isArray(data) ? data : []);
+      if (modelsList.length > 0) {
+        allModels = modelsList.map(m => ({ id: typeof m === 'string' ? m : m.id, selected: true }));
+        detectedProtocol = 'openai';
+        addLog(`Discovered ${allModels.length} models via local browser`, 'ok');
+        toast(`Discovered ${allModels.length} models (Local Browser Mode)`, 'ok');
+        document.getElementById('models-panel').style.display = '';
+        renderModelList();
+        try {
+          const host = new URL(cleanUrl.startsWith('http') ? cleanUrl : 'https://' + cleanUrl).hostname;
+          const autoName = host.split('.')[0].replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+          document.getElementById('export-provider-name').value = autoName;
+        } catch(e) {}
+      } else {
+        addLog('Endpoint returned empty model list', 'warn');
+        toast('No model catalog returned — use manual model input', 'info', 4500);
+        toggleManualInput();
+      }
+    } catch (err) {
+      console.warn('Direct fetch failed:', err);
+      addLog(`Browser direct request failed: ${err.message}. Provider likely blocks CORS. Switch to Cloud Relay.`, 'err');
+      toast('Direct browser call failed (CORS blocked by provider). Use Cloud Relay or cURL.', 'fail', 6000);
+      if (notice) notice.style.display = 'block';
+    }
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Scan Available Models';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="pulse" style="background:#00f0ff"></span> Probing API...';
+  addLog(`Scanning models via Cloud Relay for ${baseUrl}...`, 'info');
+
+  try {
+    const headers = {};
+    if (userAgent) headers['User-Agent'] = userAgent;
+
+    const resp = await fetch(`${BASE}/api/scan`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ baseUrl, apiKey, protocol, headers })
+    });
+    const data = await resp.json();
+
+    detectedProtocol = data.detectedProtocol || 'openai';
+    if (data.models && data.models.length > 0) {
+      allModels = data.models.map(m => ({ ...m, selected: true }));
+      addLog(`Discovered ${allModels.length} models via Cloud Relay (${detectedProtocol})`, 'ok');
+      toast(`Discovered ${allModels.length} models (${detectedProtocol})`, 'ok');
+      document.getElementById('models-panel').style.display = '';
+      renderModelList();
+      try {
+        const host = new URL(baseUrl.startsWith('http') ? baseUrl : 'https://' + baseUrl).hostname;
+        const autoName = host.split('.')[0].replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+        document.getElementById('export-provider-name').value = autoName;
+      } catch(e) {}
+    } else {
+      addLog('No model catalog exposed — enter models manually', 'warn');
+      toast('No model catalog exposed — use "Enter models manually"', 'info', 4500);
+      toggleManualInput();
+    }
+  } catch (e) {
+    addLog(`Cloud Relay scan error: ${e.message}`, 'err');
+    toast('Scan request failed: ' + e.message, 'fail');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Scan Available Models';
+}
+
+// Render model list with search filter
+function renderModelList() {
+  const list = document.getElementById('model-list');
+  const filter = (document.getElementById('model-filter').value || '').toLowerCase().trim();
+  const filtered = allModels.filter(m => m.id.toLowerCase().includes(filter) || (m.owned_by || '').toLowerCase().includes(filter));
+
+  list.innerHTML = filtered.map(m => {
+    const safeId = escapeHtml(m.id);
+    const domId = escapeId(m.id);
+    const res = results[m.id];
+    let dotClass = '';
+    if (res) dotClass = res.ok ? 'ok' : 'fail';
+
+    return `
+      <div class="model-item ${m.selected ? 'selected' : ''}" onclick="toggleModelById('${safeId}')" data-id="${safeId}">
+        <input type="checkbox" ${m.selected ? 'checked' : ''} onclick="event.stopPropagation();toggleModelById('${safeId}')">
+        <div class="model-status-dot ${dotClass}" id="dot-${domId}"></div>
+        <span class="model-id" title="${safeId}">${safeId}</span>
+        ${m.owned_by ? `<span class="model-owned">${escapeHtml(m.owned_by)}</span>` : ''}
+        <button class="btn-xs-fp" onclick="event.stopPropagation();runFingerprintForModel('${safeId}')" title="Fingerprint this model">FP</button>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('model-count-tag').textContent = allModels.length;
+  document.getElementById('total-count').textContent = allModels.length;
+  if (filter) {
+    document.getElementById('filtered-note').textContent = `(${filtered.length} matching)`;
+  } else {
+    document.getElementById('filtered-note').textContent = '';
+  }
+  updateSelectCount();
+}
+
+function filterModels() { renderModelList(); }
+
+function toggleModelById(id) {
+  const m = allModels.find(x => x.id === id);
+  if (m) {
+    m.selected = !m.selected;
+    renderModelList();
+  }
+}
+
+function selectAllFiltered() {
+  const filter = (document.getElementById('model-filter').value || '').toLowerCase().trim();
+  allModels.forEach(m => {
+    if (!filter || m.id.toLowerCase().includes(filter)) {
+      m.selected = true;
+    }
+  });
+  renderModelList();
+}
+
+function deselectAllFiltered() {
+  const filter = (document.getElementById('model-filter').value || '').toLowerCase().trim();
+  allModels.forEach(m => {
+    if (!filter || m.id.toLowerCase().includes(filter)) {
+      m.selected = false;
+    }
+  });
+  renderModelList();
+}
+
+function updateSelectCount() {
+  const sel = allModels.filter(m => m.selected).length;
+  document.getElementById('selected-count').textContent = sel;
+  document.getElementById('btn-selected-count').textContent = sel;
+}
+
+// Check execution
+async function checkSelected() {
+  const selected = allModels.filter(m => m.selected);
+  if (selected.length === 0) { toast('Select at least one model to check', 'fail'); return; }
+  await runChecks(selected);
+}
+
+async function checkAll() {
+  if (allModels.length === 0) { toast('Scan or add models first', 'fail'); return; }
+  await runChecks(allModels);
+}
+
+function stopChecks() {
+  if (isChecking) {
+    shouldStop = true;
+    toast('Stopping checks...', 'info');
+  }
+}
+
+async function runChecks(models) {
+  if (isChecking) return;
+  isChecking = true;
+  shouldStop = false;
+
+  const baseUrl = document.getElementById('base-url').value.trim();
+  const apiKey = document.getElementById('api-key').value.trim();
+  const protocol = document.getElementById('protocol').value === 'auto' ? detectedProtocol : document.getElementById('protocol').value;
+  let userAgent = document.getElementById('user-agent').value.trim();
+  if (baseUrl.toLowerCase().includes('agentrouter') && (!userAgent || userAgent.includes('Mozilla'))) {
+    userAgent = 'Cline/3.0.0';
+    document.getElementById('user-agent').value = 'Cline/3.0.0';
+  }
+  const testPrompt = document.getElementById('test-prompt').value.trim() || 'Say "Ready" in one word.';
+
+  document.getElementById('stop-btn').style.display = '';
+  document.getElementById('check-btn').disabled = true;
+  document.getElementById('check-all-btn').disabled = true;
+
+  document.getElementById('progress-wrap').style.display = '';
+  document.getElementById('progress-fill').style.width = '0%';
+  
+  // If empty state is visible, clear it
+  const area = document.getElementById('results-area');
+  if (area.querySelector('.empty-state')) area.innerHTML = '';
+
+  let done = 0;
+  let okCount = Object.values(results).filter(r => r.ok).length;
+
+  for (const model of models) {
+    if (shouldStop) break;
+
+    const domId = escapeId(model.id);
+    document.getElementById('progress-label').textContent = `Testing: ${model.id}`;
+    document.getElementById('progress-frac').textContent = `${done + 1}/${models.length}`;
+
+    // Update status dot in model list to checking
+    const dot = document.getElementById(`dot-${domId}`);
+    if (dot) dot.className = 'model-status-dot checking';
+
+    // Add or update result card
+    const cardId = `res-card-${domId}`;
+    let card = document.getElementById(cardId);
+    if (!card) {
+      card = document.createElement('div');
+      card.className = 'result-card';
+      card.id = cardId;
+      area.insertBefore(card, area.firstChild);
+    }
+
+    card.innerHTML = `
+      <div class="result-header">
+        <span class="result-model">${escapeHtml(model.id)}</span>
+        <div style="display:flex;align-items:center">
+          <span class="result-latency" id="lat-${domId}">--</span>
+          <span class="result-badge badge-checking" id="badge-${domId}">Testing...</span>
+        </div>
+      </div>
+      <div class="result-text" id="text-${domId}" style="color:var(--warn)">Waiting for response...</div>
+    `;
+
+    try {
+      const headers = {};
+      if (userAgent) headers['User-Agent'] = userAgent;
+
+      let data;
+      if (executionMode === 'direct') {
+        const cleanUrl = baseUrl.replace(/\/+$/, '');
+        const endpoint = cleanUrl.endsWith('/chat/completions') ? cleanUrl : cleanUrl + '/chat/completions';
+        const start = performance.now();
+        addLog(`[Local] Probing ${model.id} directly...`, 'info');
+        try {
+          const reqBody = {
+            model: model.id,
+            messages: [{ role: 'user', content: testPrompt }],
+            max_tokens: 150
+          };
+          let resp = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify(reqBody)
+          });
+          
+          // Fallback if provider requires max_completion_tokens (e.g. o1/o3/newer reasoning models)
+          if (!resp.ok && resp.status === 400) {
+            const errPeek = await resp.clone().text();
+            if (errPeek.includes('max_completion_tokens')) {
+              addLog(`[Local] Retrying with max_completion_tokens for ${model.id}...`, 'info');
+              delete reqBody.max_tokens;
+              reqBody.max_completion_tokens = 150;
+              resp = await fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify(reqBody)
+              });
+            }
+          }
+
+          const latencyMs = Math.round(performance.now() - start);
+          if (!resp.ok) {
+            const errText = await resp.text();
+            data = { ok: false, latencyMs, error: `HTTP ${resp.status}: ${errText.slice(0, 150)}` };
+            addLog(`[Local] ${model.id} FAIL (HTTP ${resp.status}) in ${latencyMs}ms`, 'err');
+          } else {
+            const json = await resp.json();
+            const choice = json.choices && json.choices[0];
+            const msg = choice ? (choice.message || choice) : null;
+            let reply = '';
+            if (msg) {
+              reply = (msg.content != null && String(msg.content).trim() !== '') 
+                ? String(msg.content).trim() 
+                : (msg.reasoning_content || msg.reasoning || (typeof msg.text === 'string' ? msg.text : ''));
+            }
+            if (!reply && json.text) reply = json.text;
+            if (!reply && choice && choice.text) reply = choice.text;
+            if (!reply) reply = 'Ready';
+            
+            data = { ok: true, latencyMs, text: reply };
+            addLog(`[Local] ${model.id} OK 200 in ${latencyMs}ms: "${reply.slice(0, 40)}"`, 'ok');
+          }
+        } catch (err) {
+          const latencyMs = Math.round(performance.now() - start);
+          data = { ok: false, latencyMs, error: 'Direct connection failed (CORS restricted by provider)' };
+          addLog(`[Local] ${model.id} CORS blocked by provider in ${latencyMs}ms`, 'err');
+        }
+      } else {
+        addLog(`[Relay] Probing ${model.id} via Cloud Relay...`, 'info');
+        const resp = await fetch(`${BASE}/api/test`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ baseUrl, apiKey, model: model.id, protocol, headers, prompt: testPrompt, stream: false })
+        });
+        data = await resp.json();
+        if (data.ok) {
+          addLog(`[Relay] ${model.id} OK 200 in ${data.latencyMs || 0}ms: "${(data.text || '').slice(0, 40)}"`, 'ok');
+        } else {
+          addLog(`[Relay] ${model.id} FAIL in ${data.latencyMs || 0}ms: ${data.error || 'error'}`, 'err');
+        }
+      }
+
+      results[model.id] = { ok: data.ok, latencyMs: data.latencyMs, text: data.text || data.error };
+
+      const latEl = document.getElementById(`lat-${domId}`);
+      const badgeEl = document.getElementById(`badge-${domId}`);
+      const textEl = document.getElementById(`text-${domId}`);
+
+      if (data.ok) {
+        okCount++;
+        const lat = data.latencyMs || 0;
+        const latClass = lat < 600 ? 'lat-fast' : (lat < 1800 ? 'lat-mid' : 'lat-slow');
+        if (latEl) { latEl.className = `result-latency ${latClass}`; latEl.textContent = `${lat}ms`; }
+        if (badgeEl) { badgeEl.className = 'result-badge badge-ok'; badgeEl.textContent = `OK 200`; }
+        if (textEl) { textEl.style.color = '#86efac'; textEl.textContent = data.text || '(empty body)'; }
+        if (dot) dot.className = 'model-status-dot ok';
+      } else {
+        if (latEl) { latEl.textContent = data.latencyMs ? `${data.latencyMs}ms` : ''; }
+        if (badgeEl) { badgeEl.className = 'result-badge badge-fail'; badgeEl.textContent = `FAIL ${data.status || ''}`; }
+        if (textEl) { textEl.style.color = '#fca5a5'; textEl.textContent = data.error || 'Request failed'; }
+        if (dot) dot.className = 'model-status-dot fail';
+      }
+
+    } catch (e) {
+      results[model.id] = { ok: false, text: e.message };
+      const badgeEl = document.getElementById(`badge-${domId}`);
+      const textEl = document.getElementById(`text-${domId}`);
+      if (badgeEl) { badgeEl.className = 'result-badge badge-fail'; badgeEl.textContent = 'ERROR'; }
+      if (textEl) { textEl.style.color = '#fca5a5'; textEl.textContent = e.message; }
+      if (dot) dot.className = 'model-status-dot fail';
+    }
+
+    done++;
+    document.getElementById('progress-fill').style.width = `${(done / models.length) * 100}%`;
+    document.getElementById('results-count-tag').textContent = Object.keys(results).length;
+    
+    // Update live working count
+    const okBadge = document.getElementById('ok-counter');
+    okBadge.style.display = '';
+    okBadge.textContent = `${okCount} working`;
+
+    // Live update export panel
+    updateExportPanel();
+  }
+
+  document.getElementById('stop-btn').style.display = 'none';
+  document.getElementById('check-btn').disabled = false;
+  document.getElementById('check-all-btn').disabled = false;
+
+  const finalOk = Object.values(results).filter(r => r.ok).length;
+  document.getElementById('progress-label').textContent = shouldStop ? 'Stopped by user' : `Completed — ${finalOk} working models`;
+  toast(`Done: ${finalOk} working models`, finalOk > 0 ? 'ok' : 'fail');
+
+  isChecking = false;
+}
+
+function clearResults() {
+  results = {};
+  document.getElementById('results-area').innerHTML = `
+    <div class="empty-state">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <p>Enter your API URL & Key on the left<br>and scan to test models in real time.</p>
+    </div>
+  `;
+  document.getElementById('results-count-tag').textContent = '0';
+  document.getElementById('ok-counter').style.display = 'none';
+  document.getElementById('progress-wrap').style.display = 'none';
+  document.getElementById('export-panel').style.display = 'none';
+  allModels.forEach(m => {
+    const dot = document.getElementById(`dot-${escapeId(m.id)}`);
+    if (dot) dot.className = 'model-status-dot';
+  });
+}
+
+// Config Exports
+function updateExportPanel() {
+  const working = Object.entries(results).filter(([_, r]) => r.ok).map(([id]) => id);
+  if (working.length > 0) {
+    document.getElementById('export-panel').style.display = '';
+    document.getElementById('export-ok-count').textContent = working.length;
+    updateExportCode();
+  }
+}
+
+function setExportTab(tab) {
+  currentExportTab = tab;
+  document.querySelectorAll('.export-tab').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  const dBtn = document.getElementById('download-script-btn');
+  if (tab === 'script') dBtn.style.display = '';
+  else dBtn.style.display = 'none';
+  updateExportCode();
+}
+
+function updateExportCode() {
+  const working = Object.entries(results).filter(([_, r]) => r.ok).map(([id]) => id);
+  const pName = document.getElementById('export-provider-name').value.trim() || 'my-provider';
+  const baseUrl = document.getElementById('base-url').value.trim();
+  const apiKey = document.getElementById('api-key').value.trim();
+  const protocol = document.getElementById('protocol').value === 'auto' ? detectedProtocol : document.getElementById('protocol').value;
+  const box = document.getElementById('export-code-box');
+
+  if (currentExportTab === 'openclaw') {
+    const isAnthropic = protocol === 'anthropic';
+    const cfg = {
+      [pName]: {
+        api: isAnthropic ? "anthropic-messages" : "openai-completions",
+        baseUrl: baseUrl,
+        apiKey: apiKey,
+        headers: { "User-Agent": "Mozilla/5.0" },
+        models: working.map(id => ({
+          id: id,
+          name: id,
+          contextWindow: 128000,
+          maxTokens: 8192
+        }))
+      }
+    };
+    box.textContent = `// Add inside ~/.openclaw/openclaw.json under "models.providers":\n\n` + JSON.stringify(cfg, null, 2);
+  } else if (currentExportTab === 'opencode') {
+    const isAnthropic = protocol === 'anthropic';
+    const cfg = {
+      [pName]: {
+        npm: isAnthropic ? "@ai-sdk/anthropic" : "@ai-sdk/openai-compatible",
+        options: {
+          baseURL: baseUrl,
+          apiKey: apiKey
+        },
+        models: working.map(id => ({
+          id: id,
+          name: id,
+          contextLength: 128000
+        }))
+      }
+    };
+    box.textContent = `// Add inside ~/.config/opencode/opencode.json under "providers":\n\n` + JSON.stringify(cfg, null, 2);
+  } else if (currentExportTab === 'script') {
+    const isAnthropic = protocol === 'anthropic';
+    box.textContent = `#!/usr/bin/env bash
+# Auto-generated setup script by ai.solisk.org/checker
+# Provider: ${pName}
+set -e
+
+PROVIDER_NAME="${pName}"
+BASE_URL="${baseUrl}"
+API_KEY="${apiKey}"
+API_TYPE="${isAnthropic ? 'anthropic-messages' : 'openai-completions'}"
+
+MODELS=(${working.map(m => `"${m}"`).join(' ')})
+
+echo "Installing $PROVIDER_NAME with \${#MODELS[@]} tested models..."
+
+# Patch OpenClaw if installed
+OPENCLAW_CONF="$HOME/.openclaw/openclaw.json"
+if [ -f "$OPENCLAW_CONF" ]; then
+  python3 -c "
+import json
+with open('$OPENCLAW_CONF') as f: c = json.load(f)
+c.setdefault('models', {}).setdefault('providers', {})['$PROVIDER_NAME'] = {
+  'api': '$API_TYPE',
+  'baseUrl': '$BASE_URL',
+  'apiKey': '$API_KEY',
+  'models': [{'id': m, 'name': m} for m in '''${working.join(' ')}'''.split()]
+}
+with open('$OPENCLAW_CONF', 'w') as f: json.dump(c, f, indent=2)
+print('✓ OpenClaw configured successfully')
+"
+fi
+
+echo "Done!"
+`;
+  }
+}
+
+function copyExportCode() {
+  const text = document.getElementById('export-code-box').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    toast('Config copied to clipboard!', 'ok');
+  }).catch(() => {
+    toast('Please manually select and copy text', 'info');
+  });
+}
+
+function downloadScript() {
+  const text = document.getElementById('export-code-box').textContent;
+  const pName = document.getElementById('export-provider-name').value.trim() || 'provider';
+  const blob = new Blob([text], { type: 'text/x-shellscript' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `setup-${pName}.sh`;
+  a.click();
+  toast(`Downloaded setup-${pName}.sh`, 'ok');
+}
+
+// Auto-detect AgentRouter and enforce Cline user-agent
+document.getElementById('base-url').addEventListener('input', function(e) {
+  const val = (e.target.value || '').toLowerCase();
+  const uaInput = document.getElementById('user-agent');
+  if (val.includes('agentrouter')) {
+    if (!uaInput.value || uaInput.value.includes('Mozilla')) {
+      uaInput.value = 'Cline/3.0.0';
+      toast('AgentRouter detected: User-Agent set to Cline/3.0.0 (required by provider)', 'info', 4000);
+    }
+  }
+});
+
+
+// Fingerprint Modal Functions
+function openFingerprintModal(modelId) {
+  const modal = document.getElementById('fp-modal');
+  const body = document.getElementById('fp-modal-body');
+  modal.style.display = 'flex';
+  body.innerHTML = `
+    <div style="text-align:center;padding:40px 20px">
+      <div class="pulse" style="width:20px;height:20px;background:#a855f7;margin:0 auto 16px auto"></div>
+      <div style="font-weight:700;font-size:15px;color:#f8fafc;margin-bottom:6px">Analyzing Model Fingerprint</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:20px">Running standardized multi-prompt battery on <span style="color:#38bdf8;font-weight:600">${escapeHtml(modelId)}</span>...</div>
+      <div style="max-width:380px;margin:0 auto;text-align:left;font-size:11.5px;color:var(--muted);line-height:1.8">
+        <div>1. Self-Identity &amp; Hedging Probe</div>
+        <div>2. Knowledge Cutoff Awareness</div>
+        <div>3. Markdown &amp; Structure Preference</div>
+        <div>4. Refusal Pattern &amp; Safety Alignment</div>
+        <div>5. Sycophancy &amp; Agreement Trap</div>
+        <div>6. Cognitive Bias Math Trap (Bat &amp; Ball)</div>
+        <div>7. Lexical Constraint Following (Poem)</div>
+        <div>8. Context Window Self-Awareness</div>
+      </div>
+    </div>
+  `;
+}
+
+function closeFingerprintModal() {
+  document.getElementById('fp-modal').style.display = 'none';
+}
+
+function toggleProbeBody(id) {
+  const el = document.getElementById(`probe-body-${id}`);
+  const arr = document.getElementById(`probe-arrow-${id}`);
+  if (el.style.display === 'none') {
+    el.style.display = 'block';
+    arr.textContent = '▲';
+  } else {
+    el.style.display = 'none';
+    arr.textContent = '▼';
+  }
+}
+
+function renderFingerprintError(msg) {
+  const body = document.getElementById('fp-modal-body');
+  body.innerHTML = `
+    <div style="text-align:center;padding:30px 20px">
+      <div style="font-size:32px;margin-bottom:12px">️</div>
+      <div style="font-weight:700;color:var(--error);margin-bottom:8px">Fingerprint Probe Failed</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:20px">${escapeHtml(msg)}</div>
+      <button class="btn btn-outline btn-sm" onclick="closeFingerprintModal()">Close</button>
+    </div>
+  `;
+}
+
+function renderFingerprintResults(data) {
+  const body = document.getElementById('fp-modal-body');
+  const isAuth = data.isAuthentic;
+  const verdictClass = isAuth ? 'fp-verdict-authentic' : 'fp-verdict-spoof';
+  const verdictIcon = isAuth ? '✓ VERIFIED AUTHENTIC' : ' POTENTIAL SPOOF / MISLABELED';
+  const verdictSub = isAuth
+    ? `Model response behavior aligns with authentic <strong>${escapeHtml(data.topMatch)}</strong> architecture.`
+    : `Model response patterns indicate <strong>${escapeHtml(data.topMatch)}</strong> rather than declared label.`;
+
+  let rankHtml = (data.rankedMatches || []).map(r => `
+    <div class="fp-rank-row">
+      <div class="fp-rank-name">${escapeHtml(r.model)}</div>
+      <div class="fp-rank-bar-bg">
+        <div class="fp-rank-bar-fill" style="width:${r.percent}"></div>
+      </div>
+      <div class="fp-rank-pct">${r.percent}</div>
+    </div>
+  `).join('');
+
+  let probesHtml = (data.probes || []).map(p => `
+    <div class="probe-card">
+      <div class="probe-head" onclick="toggleProbeBody('${p.id}')">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:11px;font-weight:700;color:${p.passedConstraints ? '#4ade80' : '#f87171'}">${p.passedConstraints ? '✓ PASS' : ' CHECK'}</span>
+          <span style="font-weight:600;color:#f8fafc;font-size:12px">${escapeHtml(p.name)}</span>
+          <span style="font-size:10px;color:var(--muted)">(${escapeHtml(p.category)})</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:11px;color:#38bdf8;font-family:ui-monospace,monospace">${p.latencyMs}ms</span>
+          <span id="probe-arrow-${p.id}" style="font-size:10px;color:var(--muted)">▼</span>
+        </div>
+      </div>
+      <div class="probe-body" id="probe-body-${p.id}" style="display:none">
+        <div style="color:#94a3b8;font-weight:600;margin-bottom:6px">Model Response:</div>
+        <div>${escapeHtml(p.text)}</div>
+      </div>
+    </div>
+  `).join('');
+
+  body.innerHTML = `
+    <!-- Verdict Banner -->
+    <div class="fp-verdict-banner ${verdictClass}">
+      <div>
+        <div style="font-weight:800;font-size:14px;letter-spacing:0.5px">${verdictIcon}</div>
+        <div style="font-size:12px;opacity:0.9;margin-top:3px">${verdictSub}</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:10px;text-transform:uppercase;opacity:0.75">Confidence</div>
+        <div style="font-size:22px;font-weight:800;font-family:ui-monospace,monospace">${data.confidence}</div>
+      </div>
+    </div>
+
+    <!-- Telemetry Grid -->
+    <div class="fp-metrics-grid">
+      <div class="fp-metric-card">
+        <div class="fp-metric-lbl">Constraint Adherence</div>
+        <div class="fp-metric-val" style="color:#4ade80">${data.behavior.constraintAdherence}%</div>
+      </div>
+      <div class="fp-metric-card">
+        <div class="fp-metric-lbl">Reasoning Tokens</div>
+        <div class="fp-metric-val" style="color:#38bdf8">${data.behavior.hasReasoningTokens ? 'Active (CoT)' : 'Standard'}</div>
+      </div>
+      <div class="fp-metric-card">
+        <div class="fp-metric-lbl">Average Latency</div>
+        <div class="fp-metric-val" style="color:#f59e0b">${data.behavior.avgLatencyMs}ms</div>
+      </div>
+    </div>
+
+    <!-- Similarity Leaderboard -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:18px">
+      <div style="font-weight:700;font-size:12px;color:#f8fafc;margin-bottom:12px;display:flex;justify-content:space-between">
+        <span>Semantic Architecture Similarity (S1M0N38 Centroids)</span>
+        <span style="color:var(--muted);font-weight:400">Cosine Similarity Vector</span>
+      </div>
+      ${rankHtml}
+    </div>
+
+    <!-- Probe Battery Details -->
+    <div>
+      <div style="font-weight:700;font-size:12px;color:#f8fafc;margin-bottom:10px">Standardized Behavioral Probe Suite (Click to inspect)</div>
+      ${probesHtml}
+    </div>
+  `;
+}
+
+async function runFingerprintForModel(targetModelId) {
+  const baseUrl = document.getElementById('base-url').value.trim();
+  const apiKey = document.getElementById('api-key').value.trim();
+  const protocol = document.getElementById('protocol').value === 'auto' ? detectedProtocol : document.getElementById('protocol').value;
+  let userAgent = document.getElementById('user-agent').value.trim();
+
+  if (!baseUrl || !apiKey) {
+    toast('Base URL and API Key are required to run fingerprint', 'fail');
+    return;
+  }
+
+  let modelId = targetModelId;
+  if (!modelId) {
+    const selected = allModels.find(m => m.selected);
+    if (!selected) {
+      toast('Please select or click a model to fingerprint', 'fail');
+      return;
+    }
+    modelId = selected.id;
+  }
+
+  if (baseUrl.toLowerCase().includes('agentrouter') && (!userAgent || userAgent.includes('Mozilla'))) {
+    userAgent = 'Cline/3.0.0';
+    document.getElementById('user-agent').value = 'Cline/3.0.0';
+  }
+
+  openFingerprintModal(modelId);
+
+  try {
+    const headers = {};
+    if (userAgent) headers['User-Agent'] = userAgent;
+
+    const resp = await fetch(`${BASE}/api/fingerprint`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ baseUrl, apiKey, model: modelId, protocol, headers })
+    });
+
+    const data = await resp.json();
+    if (!resp.ok || !data.success) {
+      throw new Error(data.error || 'Fingerprint request failed');
+    }
+
+    renderFingerprintResults(data);
+  } catch (err) {
+    renderFingerprintError(err.message);
+  }
+}
+
+function runFingerprintSelected() {
+  const selected = allModels.filter(m => m.selected);
+  if (selected.length === 0) {
+    toast('Select a model from the list first', 'fail');
+    return;
+  }
+  runFingerprintForModel(selected[0].id);
+}
+</script>
+
+
+<!-- Fingerprint Inspector Modal -->
+<div class="modal-overlay" id="fp-modal" style="display:none" onclick="if(event.target===this)closeFingerprintModal()">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font-size:18px">️</span>
+        <div>
+          <div style="font-weight:700;font-size:14px;color:#f8fafc">LLM Fingerprint Inspector</div>
+          <div style="font-size:11px;color:var(--muted)">S1M0N38 Semantic Multi-Prompt Methodology</div>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="closeFingerprintModal()" style="padding:4px 10px">&times;</button>
+    </div>
+    <div class="modal-body" id="fp-modal-body">
+      <div style="background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.25);border-radius:10px;padding:9px 13px;font-size:11px;color:#6ee7b7;display:flex;align-items:center;gap:8px;margin-bottom:14px">
+        <span style="font-size:13px"></span>
+        <span><strong>Zero-Storage Guarantee:</strong> Probes are lightweight and consume minimal tokens (~350 max). Your API key is never saved anywhere on our system.</span>
+      </div>
+      <!-- Content populated dynamically -->
+    </div>
+  </div>
+</div>
+</body>
+</html>

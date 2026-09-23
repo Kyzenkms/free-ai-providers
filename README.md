@@ -38,22 +38,212 @@
 
 ---
 
+## 📦 Comprehensive Provider Directory
+
+### S-Tier — Flagship Grants & Top-Tier Credit Allowances ($100 – $150+ USD)
+
+#### 1. AgentRouter
+* **Base URL:** `https://agentrouter.org/v1` (OpenAI) / `https://agentrouter.org/` (Anthropic) ([Click Here](https://agentrouter.org/register?aff=9tAF))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`) & Native Anthropic (`/v1/messages`)
+* **Allocation:** **`$150` verified starter credit** upon registration + claimable **`$25` daily check-in rewards**.
+* **Active Verified Models:** `glm-5.3`, `deepseek-v4-flash`, `deepseek-v3`, `claude-3-7-sonnet`
+* **Technical Notes:** Highest sustained free quota available. Dual-protocol architecture enables drop-in integration with Cursor, Claude Code, and autonomous agent loops.
+
+#### 2. KKToken
+* **Base URL:** `https://kktoken.cc/v1` ([Click Here](https://kktoken.cc/sign-up))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$100` free credit grant**.
+* **Technical Notes:** Excellent sustained throughput for automated test suites and agent loops.
+
+#### 3. SeekAI
+* **Base URL:** `https://seekai.cc/v1` ([Click Here](https://seekai.cc/sign-up?aff=8lEz))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$100` initial grant** upon registration.
+* **Technical Notes:** Features an extensive catalog of frontier models. Verify token throughput with diagnostic checks.
+
+#### 4. WorkBuddy
+* **Platform:** CLI, IDE, and Autonomous Work Agent ([Click Here](https://www.workbuddy.ai/))
+* **Allocation:** Generous free-tier registration grant with daily active model allotments.
+* **Technical Notes:** High-performance developer platform operating as a unified CLI, editor runtime, and background agent harness with built-in model routing.
+
+---
+
+### A-Tier — Daily Refreshes & Generous Grants ($50 – $80 USD)
+
+#### 5. GodRouter
+* **Base URL:** `https://godrouter.cyou/v1` ([Click Here](https://godrouter.cyou/sign-up?aff=FsUN))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$80` free credit grant** upon account creation.
+* **Technical Notes:** Resilient aggregator gateway designed for multi-model fallback and high concurrency.
+
+#### 6. JustWoker API
+* **Base URL:** `https://api.justwoker.icu/v1` ([Click Here](https://api.justwoker.icu/register?aff=OBJZ))
+* **Protocol:** Dual Protocol — Native Anthropic (`/v1/messages`) & OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$70` starter grant** + **`$20` daily check-in credit refresh**.
+* **Technical Notes:** Direct drop-in compatibility with Claude Code, Cursor, and OpenAI toolkits.
+
+#### 7. GoRouter
+* **Base URL:** `https://gorouter.app/v1` ([Click Here](https://gorouter.app/sign-up))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$70` free credit grant**.
+* **Technical Notes:** High-quality router architecture optimized for low-latency tool calls and agent integrations.
+
+#### 8. TokenForge API
+* **Base URL:** `https://tokenforge.ai.studio/v1` ([Click Here](https://tokenforge.ai.studio/sign-up?aff=tkjh))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$60` credit allowance** + claimable community pool bursts.
+* **Technical Notes:** Requires an authenticated GitHub account (14+ days old) for abuse prevention.
+
+#### 9. LayerX1
+* **Base URL:** `https://www.layerx1.com/v1` ([Click Here](https://www.layerx1.com/))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$50` free credit allowance**.
+* **Technical Notes:** Modern developer platform with simple token generation and testing tools.
+
+#### 10. Vyce AI
+* **Base URL:** `https://vyceai.com/v1` ([Click Here](https://vyceai.com/signup?ref=VYCE_4YNRFL))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$50` free starter credit** upon signup + **`$10` daily credit refresh** with referrals.
+* **Active Models:** DeepSeek V4.1
+* **Technical Notes:** High-performance routing with consistent uptime, ideal for coding tools and developer sandboxes.
+
+---
+
+### B-Tier — Specialized Gateways & Massive Token Grants
+
+#### 11. AnyModel (10M Tokens)
+* **Base URL:** `https://anymodel.org/v1` ([Click Here](https://anymodel.org/))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **10,000,000 FREE Tokens** upon registration.
+* **Technical Notes:** High-volume token grant ideal for large context processing, summarization, and batch workflows.
+
+#### 12. Yingz Bot (10M Tokens)
+* **Platform:** Telegram Bot Relay ([Click Here](https://t.me/Yingzshopbot?start=ref7712622794))
+* **Allocation:** **10,000,000 token grant** (+ 10M per referral).
+* **Technical Notes:** Programmatic API relay managed and issued via Telegram bot automation.
+
+#### 13. True-SOTA
+* **Base URL:** `https://true-sota.com/v1` ([Click Here](https://true-sota.com/register))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$20` trial credit**.
+* **Technical Notes:** Curated access to frontier state-of-the-art models for performance verification.
+
+#### 14. Odyssey API
+* **Base URL:** `https://odysseyapi.tech/v1` ([Click Here](https://odysseyapi.tech/invite/RBDSKGNQ))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`) & Anthropic Native
+* **Allocation:** Initial trial credits on registration with invite code `RBDSKGNQ`.
+* **Active Verified Models:** `anthropic/claude-sonnet-4-6`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-sol`, `deepseek/deepseek-v4.1-flash`, `xai/grok-4.6`
+* **Technical Notes:** Protected by Cloudflare WAF. Provides direct inference on frontier LLMs including Claude Sonnet 4.6 and GPT-5.6 Terra.
+
+#### 15. APIMaster
+* **Base URL:** `https://apimaster.ai/v1` ([Click Here](https://apimaster.ai/register?ref=atpht1pq))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$20` trial grant**.
+* **Technical Notes:** Multi-provider aggregator with active upstream health verification.
+
+#### 16. Zendigikey
+* **Base URL:** `https://zendigikey.shop/v1` ([Click Here](https://zendigikey.shop/sign-up))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$10` starting credit**.
+
+#### 17. Freemodel.dev
+* **Base URL:** `https://freemodel.dev/v1` ([Click Here](https://freemodel.dev/))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **Allocation:** **`$10` trial credit allowance**.
+
+---
+
+### C-Tier — Keyless Endpoints & Community Pools
+
+#### 18. OpenCode Zen (Zero-Key Bearer)
+* **Base URL:** `https://opencode.ai/zen/v1` ([Click Here](https://opencode.ai))
+* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
+* **API Key:** `public` (Accepts Bearer key `public` without registration)
+* **Active Models:** `deepseek-v4-flash`, `mimo-v2.5`, `glm-5.1`
+* **Technical Notes:** Zero-signup gateway provided by OpenCode. Optimal with header `User-Agent: opencode/1.18.18`.
+
+#### 19. XKiro (100% Free Access)
+* **Base URL:** `https://xkiro.com/v1` ([Click Here](https://xkiro.com/))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** Completely free model access for testing and evaluation.
+
+#### 20. HCNSEC API
+* **Base URL:** `https://api.hcnsec.cn/v1` ([Click Here](https://api.hcnsec.cn/sign-up?aff=9A6V))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** Generous default free quota allowance.
+
+#### 21. WYY22
+* **Base URL:** `https://www.wyy22.com/v1` ([Click Here](https://www.wyy22.com/sign-up))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** Free registration model testing quota.
+
+#### 22. BaiLu Code
+* **Base URL:** `https://bailucode.com/v1` ([Click Here](https://bailucode.com/auth/register))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** Developer invite grant for coding assistants.
+
+#### 23. LMSpeed
+* **Base URL:** `https://lmspeed.net/v1` ([Click Here](https://lmspeed.net/))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** Free tier for latency and inference evaluation.
+
+#### 24. KiraAI
+* **Base URL:** `https://kiraai.vn/v1` ([Click Here](https://kiraai.vn/))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** Free trial model access.
+
+#### 25. Orbelius
+* **Base URL:** `https://nova.vcrauo.com/v1` ([Click Here](https://nova.vcrauo.com/sign-up?aff=7Ny4))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** `$10` starting trial grant.
+
+#### 26. VSLLM
+* **Base URL:** `https://vsllm.cc/v1` ([Click Here](https://vsllm.cc/register?aff=sTmW))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** `¥0.5` trial credit for low-latency Chinese mainland routing.
+
+#### 27. GetUniKey
+* **Base URL:** `https://api.getunikey.ai/v1` ([Click Here](https://www.getunikey.ai/sign-up?aff=8GN5))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** 5,000 credit allocation for image and diffusion models.
+
+#### 28. TokenRouter
+* **Base URL:** `https://www.tokenrouter.com/v1` ([Click Here](https://www.tokenrouter.com/))
+* **Protocol:** OpenAI Compatible
+* **Technical Notes:** Aggregator endpoint routing across multiple underlying model providers.
+
+#### 29. QianXing
+* **Base URL:** `https://fast.qianxing.pro/v1` ([Click Here](https://fast.qianxing.pro/sign-up?aff=IoIBndmu))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** Free trial quota.
+
+#### 30. EMTF
+* **Base URL:** `https://emtf.aipm9527.online/v1` ([Click Here](https://emtf.aipm9527.online/sign-up?aff=3wdE))
+* **Protocol:** OpenAI Compatible
+* **Allocation:** Free registration allowance.
+
+#### 31. SynteroLink
+* **Portal:** [Click Here](https://synterolink.com/register?aff=ET5P738DGDPV)
+* **Protocol:** OpenAI Compatible
+* **Technical Notes:** Subscription-based aggregator offering referral reward balance increments.
+
+---
+
 ## 🧭 Master Provider Benchmark Matrix
 
 | Provider | Base URL | Protocol | Free Quota | Daily Refresh | Auth Method | Best Suited For | Diagnostic |
 |:---|:---|:---|:---|:---|:---|:---|:---:|
 | **AgentRouter** | `https://agentrouter.org/v1` ([Click Here](https://agentrouter.org/register?aff=9tAF)) | OpenAI + Anthropic | **`$150`** | `$25` / 24h | GitHub OAuth | Daily dev, coding agents (`glm-5.3`, `deepseek-v4-flash`) | [Test](https://ai.solisk.org/checker) |
-| **TabiToken** | `https://tabitoken.com/v1` ([Click Here](https://tabitoken.com/sign-up)) | OpenAI | **`$120`** | None | GitHub / Email | Multi-model evaluation & reasoning benchmarks | [Test](https://ai.solisk.org/checker) |
 | **KKToken** | `https://kktoken.cc/v1` ([Click Here](https://kktoken.cc/sign-up)) | OpenAI | **`$100`** | None | GitHub / Email | Extended test suites & integration testing | [Test](https://ai.solisk.org/checker) |
-| **BluesMinds** | `https://api.bluesminds.com/v1` ([Click Here](https://api.bluesminds.com/sign-up)) | OpenAI | **`$100`** | None | GitHub / Email | Autonomous coding agents & custom endpoints | [Test](https://ai.solisk.org/checker) |
 | **SeekAI** | `https://seekai.cc/v1` ([Click Here](https://seekai.cc/sign-up?aff=8lEz)) | OpenAI | **`$100`** | None | GitHub / Email | High-throughput batch inference & frontier LLMs | [Test](https://ai.solisk.org/checker) |
-| **GodRouter** | `https://godrouter.cyou/v1` ([Click Here](https://godrouter.cyou/sign-up)) | OpenAI | **`$80`** | None | GitHub / Email | High-concurrency routing & failover | [Test](https://ai.solisk.org/checker) |
+| **GodRouter** | `https://godrouter.cyou/v1` ([Click Here](https://godrouter.cyou/sign-up?aff=FsUN)) | OpenAI | **`$80`** | None | GitHub / Email | High-concurrency routing & failover | [Test](https://ai.solisk.org/checker) |
 | **JustWoker** | `https://api.justwoker.icu/v1` ([Click Here](https://api.justwoker.icu/register?aff=OBJZ)) | Anthropic + OpenAI | **`$70`** | `$20` / 24h | GitHub / Email | Claude coding toolkits & daily dev tasks | [Test](https://ai.solisk.org/checker) |
 | **GoRouter** | `https://gorouter.app/v1` ([Click Here](https://gorouter.app/sign-up)) | OpenAI | **`$70`** | None | GitHub / Email | Fast routing & tool-calling agent harnesses | [Test](https://ai.solisk.org/checker) |
 | **TokenForge** | `https://tokenforge.ai.studio/v1` ([Click Here](https://tokenforge.ai.studio/sign-up?aff=tkjh)) | OpenAI | **`$60`** | 2×/day pool | GitHub (14d+) | Scheduled tasks & community pool bursts | [Test](https://ai.solisk.org/checker) |
 | **LayerX1** | `https://www.layerx1.com/v1` ([Click Here](https://www.layerx1.com/)) | OpenAI | **`$50`** | None | GitHub / Email | Frontier model testing & agent prototyping | [Test](https://ai.solisk.org/checker) |
-| **Vyce AI** | `https://vyceai.com/v1` ([Click Here](https://vyceai.com/signup)) | OpenAI | **`$50`** | None | GitHub / Email | Tool testing & developer sandbox environments | [Test](https://ai.solisk.org/checker) |
+| **Vyce AI** | `https://vyceai.com/v1` ([Click Here](https://vyceai.com/signup?ref=VYCE_4YNRFL)) | OpenAI | **`$50`** | `$10` / 24h | GitHub / Email | DeepSeek V4.1 | [Test](https://ai.solisk.org/checker) |
 | **True-SOTA** | `https://true-sota.com/v1` ([Click Here](https://true-sota.com/register)) | OpenAI | **`$20`** | None | GitHub / Email | State-of-the-art model testing | [Test](https://ai.solisk.org/checker) |
+| **Odyssey API** | `https://odysseyapi.tech/v1` ([Click Here](https://odysseyapi.tech/invite/RBDSKGNQ)) | OpenAI + Anthropic | **Trial Credits** | Invite Access | Invite / Email | Frontier LLM access (`claude-sonnet-4-6`, `gpt-5.6-terra`, `deepseek-v4.1-flash`) | [Test](https://ai.solisk.org/checker) |
 | **APIMaster** | `https://apimaster.ai/v1` ([Click Here](https://apimaster.ai/register?ref=atpht1pq)) | OpenAI | **`$20`** | None | GitHub / Email | Clean GPT-4o / frontier testing & verification | [Test](https://ai.solisk.org/checker) |
 | **Zendigikey** | `https://zendigikey.shop/v1` ([Click Here](https://zendigikey.shop/sign-up)) | OpenAI | **`$10`** | None | GitHub / Email | API endpoint testing & lightweight apps | [Test](https://ai.solisk.org/checker) |
 | **Freemodel.dev** | `https://freemodel.dev/v1` ([Click Here](https://freemodel.dev/)) | OpenAI | **`$10`** | None | GitHub / Email | Free model experimentation | [Test](https://ai.solisk.org/checker) |
@@ -76,199 +266,6 @@
 | **SynteroLink** | Web Portal ([Click Here](https://synterolink.com/register?aff=ET5P738DGDPV)) | OpenAI | Trial Credit | Referral | API Key | Community-shared balance routing | [Test](https://ai.solisk.org/checker) |
 
 ---
-
-## 📦 Comprehensive Provider Directory
-
-### S-Tier — Flagship Grants & Top-Tier Credit Allowances ($100 – $150+ USD)
-
-#### 1. AgentRouter
-* **Base URL:** `https://agentrouter.org/v1` (OpenAI) / `https://agentrouter.org/` (Anthropic) ([Click Here](https://agentrouter.org/register?aff=9tAF))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`) & Native Anthropic (`/v1/messages`)
-* **Allocation:** **`$150` verified starter credit** upon registration + claimable **`$25` daily check-in rewards**.
-* **Active Verified Models:** `glm-5.3`, `deepseek-v4-flash`, `deepseek-v3`, `claude-3-7-sonnet`
-* **Technical Notes:** Highest sustained free quota available. Dual-protocol architecture enables drop-in integration with Cursor, Claude Code, and autonomous agent loops.
-
-#### 2. TabiToken
-* **Base URL:** `https://tabitoken.com/v1` ([Click Here](https://tabitoken.com/sign-up))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$120` free credit allowance** upon account creation.
-* **Technical Notes:** High balance allowance tailored for multi-model reasoning benchmarks and token-intensive test suites.
-
-#### 3. KKToken
-* **Base URL:** `https://kktoken.cc/v1` ([Click Here](https://kktoken.cc/sign-up))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$100` free credit grant**.
-* **Technical Notes:** Excellent sustained throughput for automated test suites and agent loops.
-
-#### 4. BluesMinds API
-* **Base URL:** `https://api.bluesminds.com/v1` ([Click Here](https://api.bluesminds.com/sign-up))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$100` free testing credit pool**.
-* **Technical Notes:** Specializes in coding agents, developer tooling, and custom endpoints with broad model coverage.
-
-#### 5. SeekAI
-* **Base URL:** `https://seekai.cc/v1` ([Click Here](https://seekai.cc/sign-up?aff=8lEz))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$100` initial grant** upon registration.
-* **Technical Notes:** Features an extensive catalog of frontier models. Verify token throughput with diagnostic checks.
-
-#### 6. WorkBuddy
-* **Platform:** CLI, IDE, and Autonomous Work Agent ([Click Here](https://www.workbuddy.ai/))
-* **Allocation:** Generous free-tier registration grant with daily active model allotments.
-* **Technical Notes:** High-performance developer platform operating as a unified CLI, editor runtime, and background agent harness with built-in model routing.
-
----
-
-### A-Tier — Daily Refreshes & Generous Grants ($50 – $80 USD)
-
-#### 7. GodRouter
-* **Base URL:** `https://godrouter.cyou/v1` ([Click Here](https://godrouter.cyou/sign-up))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$80` free credit grant** upon account creation.
-* **Technical Notes:** Resilient aggregator gateway designed for multi-model fallback and high concurrency.
-
-#### 8. JustWoker API
-* **Base URL:** `https://api.justwoker.icu/v1` ([Click Here](https://api.justwoker.icu/register?aff=OBJZ))
-* **Protocol:** Dual Protocol — Native Anthropic (`/v1/messages`) & OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$70` starter grant** + **`$20` daily check-in credit refresh**.
-* **Technical Notes:** Direct drop-in compatibility with Claude Code, Cursor, and OpenAI toolkits.
-
-#### 9. GoRouter
-* **Base URL:** `https://gorouter.app/v1` ([Click Here](https://gorouter.app/sign-up))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$70` free credit grant**.
-* **Technical Notes:** High-quality router architecture optimized for low-latency tool calls and agent integrations.
-
-#### 10. TokenForge API
-* **Base URL:** `https://tokenforge.ai.studio/v1` ([Click Here](https://tokenforge.ai.studio/sign-up?aff=tkjh))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$60` credit allowance** + claimable community pool bursts.
-* **Technical Notes:** Requires an authenticated GitHub account (14+ days old) for abuse prevention.
-
-#### 11. LayerX1
-* **Base URL:** `https://www.layerx1.com/v1` ([Click Here](https://www.layerx1.com/))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$50` free credit allowance**.
-* **Technical Notes:** Modern developer platform with simple token generation and testing tools.
-
-#### 12. Vyce AI
-* **Base URL:** `https://vyceai.com/v1` ([Click Here](https://vyceai.com/signup))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$50` free trial credit**.
-* **Technical Notes:** Targeted for AI developer tools, sandboxing, and rapid prototyping.
-
----
-
-### B-Tier — Specialized Gateways & Massive Token Grants
-
-#### 13. AnyModel (10M Tokens)
-* **Base URL:** `https://anymodel.org/v1` ([Click Here](https://anymodel.org/))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **10,000,000 FREE Tokens** upon registration.
-* **Technical Notes:** High-volume token grant ideal for large context processing, summarization, and batch workflows.
-
-#### 14. Yingz Bot (10M Tokens)
-* **Platform:** Telegram Bot Relay ([Click Here](https://t.me/Yingzshopbot?start=ref7712622794))
-* **Allocation:** **10,000,000 token grant** (+ 10M per referral).
-* **Technical Notes:** Programmatic API relay managed and issued via Telegram bot automation.
-
-#### 15. True-SOTA
-* **Base URL:** `https://true-sota.com/v1` ([Click Here](https://true-sota.com/register))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$20` trial credit**.
-* **Technical Notes:** Curated access to frontier state-of-the-art models for performance verification.
-
-#### 16. APIMaster
-* **Base URL:** `https://apimaster.ai/v1` ([Click Here](https://apimaster.ai/register?ref=atpht1pq))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$20` trial grant**.
-* **Technical Notes:** Multi-provider aggregator with active upstream health verification.
-
-#### 17. Zendigikey
-* **Base URL:** `https://zendigikey.shop/v1` ([Click Here](https://zendigikey.shop/sign-up))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$10` starting credit**.
-
-#### 18. Freemodel.dev
-* **Base URL:** `https://freemodel.dev/v1` ([Click Here](https://freemodel.dev/))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **Allocation:** **`$10` trial credit allowance**.
-
----
-
-### C-Tier — Keyless Endpoints & Community Pools
-
-#### 19. OpenCode Zen (Zero-Key Bearer)
-* **Base URL:** `https://opencode.ai/zen/v1` ([Click Here](https://opencode.ai))
-* **Protocol:** OpenAI Compatible (`/v1/chat/completions`)
-* **API Key:** `public` (Accepts Bearer key `public` without registration)
-* **Active Models:** `deepseek-v4-flash`, `mimo-v2.5`, `glm-5.1`
-* **Technical Notes:** Zero-signup gateway provided by OpenCode. Optimal with header `User-Agent: opencode/1.18.18`.
-
-#### 20. XKiro (100% Free Access)
-* **Base URL:** `https://xkiro.com/v1` ([Click Here](https://xkiro.com/))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** Completely free model access for testing and evaluation.
-
-#### 21. HCNSEC API
-* **Base URL:** `https://api.hcnsec.cn/v1` ([Click Here](https://api.hcnsec.cn/sign-up?aff=9A6V))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** Generous default free quota allowance.
-
-#### 22. WYY22
-* **Base URL:** `https://www.wyy22.com/v1` ([Click Here](https://www.wyy22.com/sign-up))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** Free registration model testing quota.
-
-#### 23. BaiLu Code
-* **Base URL:** `https://bailucode.com/v1` ([Click Here](https://bailucode.com/auth/register))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** Developer invite grant for coding assistants.
-
-#### 24. LMSpeed
-* **Base URL:** `https://lmspeed.net/v1` ([Click Here](https://lmspeed.net/))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** Free tier for latency and inference evaluation.
-
-#### 25. KiraAI
-* **Base URL:** `https://kiraai.vn/v1` ([Click Here](https://kiraai.vn/))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** Free trial model access.
-
-#### 26. Orbelius
-* **Base URL:** `https://nova.vcrauo.com/v1` ([Click Here](https://nova.vcrauo.com/sign-up?aff=7Ny4))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** `$10` starting trial grant.
-
-#### 27. VSLLM
-* **Base URL:** `https://vsllm.cc/v1` ([Click Here](https://vsllm.cc/register?aff=sTmW))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** `¥0.5` trial credit for low-latency Chinese mainland routing.
-
-#### 28. GetUniKey
-* **Base URL:** `https://api.getunikey.ai/v1` ([Click Here](https://www.getunikey.ai/sign-up?aff=8GN5))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** 5,000 credit allocation for image and diffusion models.
-
-#### 29. TokenRouter
-* **Base URL:** `https://www.tokenrouter.com/v1` ([Click Here](https://www.tokenrouter.com/))
-* **Protocol:** OpenAI Compatible
-* **Technical Notes:** Aggregator endpoint routing across multiple underlying model providers.
-
-#### 30. QianXing
-* **Base URL:** `https://fast.qianxing.pro/v1` ([Click Here](https://fast.qianxing.pro/sign-up?aff=IoIBndmu))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** Free trial quota.
-
-#### 31. EMTF
-* **Base URL:** `https://emtf.aipm9527.online/v1` ([Click Here](https://emtf.aipm9527.online/sign-up?aff=3wdE))
-* **Protocol:** OpenAI Compatible
-* **Allocation:** Free registration allowance.
-
-#### 32. SynteroLink
-* **Portal:** [Click Here](https://synterolink.com/register?aff=ET5P738DGDPV)
-* **Protocol:** OpenAI Compatible
-* **Technical Notes:** Subscription-based aggregator offering referral reward balance increments.
 
 ---
 
