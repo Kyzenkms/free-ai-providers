@@ -62,7 +62,7 @@
 | **[True-Sota](https://true-sota.com/register?aff=65D34TT92NNR)** | **$20 Bonus** | Claude, GPT-4o | [Test](https://ai.solisk.org/checker) | Good response speeds |
 | **[Orbelius (Nova)](https://nova.vcrauo.com/sign-up?aff=7Ny4)** | **$10 Free** | DeepSeek, GPT-4o | [Test](https://ai.solisk.org/checker) | Claimable dashboard reward credits |
 | **[VSLLM](https://vsllm.cc/register?aff=sTmW)** | **Trial Balance** | DeepSeek, Qwen | [Test](https://ai.solisk.org/checker) | Fast failover relay |
-| **[DSH API](https://api.dshapi.icu/r/T8KiaeGU)** | **Pay-as-you-go (CNY)** | DeepSeek V4/V4.1, GLM-5.2/5.3, Kimi K2.8/K3, MiniMax M3, Hunyuan 3/4, GPT-6 (pro group) | [Test](https://ai.solisk.org/checker) | 0.08x group rate on CN models; dual protocol (OpenAI + Anthropic) on one base URL; Alipay/WeChat top-up, no overseas card |
+| **[DSH API](https://api.dshapi.icu/)** | **Pay-as-you-go (CNY)** | DeepSeek V4/V4.1, GLM-5.2/5.3, Kimi K2.8/K3, MiniMax M3, Hunyuan 3/4, GPT-6 (pro group) | [Test](https://ai.solisk.org/checker) | 0.08x group rate on CN models; dual protocol (OpenAI + Anthropic) on one base URL; Alipay/WeChat top-up, no overseas card |
 
 ---
 
